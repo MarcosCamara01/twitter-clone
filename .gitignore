@@ -1,0 +1,5 @@
+client/node_modules
+client/vite.config.js
+
+server/.env
+server/node_modules
