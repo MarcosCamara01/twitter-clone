@@ -10,11 +10,11 @@ const storage = multer.diskStorage({
         cb(null, "./uploads/avatars/")
     },
     filename: (req, file, cb) => {
-        cb(null, "avatar-"+Date.now()+"-"+file.originalname);
+        cb(null, "avatar-" + Date.now() + "-" + file.originalname);
     }
 });
 
-const uploads = multer({storage});
+const uploads = multer({ storage });
 
 // Definir rutas
 router.get("/prueba-usuario", check.auth, UserContoller.pruebaUser);

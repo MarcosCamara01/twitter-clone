@@ -250,10 +250,18 @@ body {
     border-color: var(--color-border-btn-delete);
 }
 
+.post__button--blue {
+    background-color: var(--color-backgroud-navbar);
+    border-color: var(--color-hover-navbar);
+}
 
 .post__button:hover{
     background-color: var(--color-background-btn-delete-hover);
     border-color: var(--color-border-btn-delete-hover);
+}
+
+.post__button--blue:hover {
+    background-color: var(--color-hover-navbar);
 }
 
 .content__container-btn{

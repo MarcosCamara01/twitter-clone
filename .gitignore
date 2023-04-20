@@ -5,3 +5,4 @@ client/src/assets/img
 
 server/.env
 server/node_modules
+server/uploads
