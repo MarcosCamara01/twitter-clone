@@ -2,10 +2,11 @@ import React from 'react'
 import avatar from "../../../assets/img/user.png";
 import { useAuth } from '../../../hooks/useAuth';
 import { Global } from '../../../helpers/Global';
+import { Link } from 'react-router-dom';
 
 export const Sidebar = () => {
 
-    const {auth, counters} = useAuth();
+    const { auth, counters } = useAuth();
 
     return (
         <aside className="layout__aside">
@@ -20,8 +21,8 @@ export const Sidebar = () => {
 
                     <div className="profile-info__general-info">
                         <div className="general-info__container-avatar">
-                            {auth.image != "default.png" ? <img src={Global.url + "user/avatar/" + auth.image} className="container-avatar__img" alt="Foto de perfil" /> : 
-                            <img src={avatar} className="container-avatar__img" alt="Foto de perfil" />}
+                            {auth.image != "default.png" ? <img src={Global.url + "user/avatar/" + auth.image} className="container-avatar__img" alt="Foto de perfil" /> :
+                                <img src={avatar} className="container-avatar__img" alt="Foto de perfil" />}
                         </div>
 
                         <div className="general-info__container-names">
@@ -33,16 +34,16 @@ export const Sidebar = () => {
                     <div className="profile-info__stats">
 
                         <div className="stats__following">
-                            <a href="#" className="following__link">
+                            <Link to={"following/" + auth._id} className="following__link">
                                 <span className="following__title">Siguiendo</span>
                                 <span className="following__number">{counters.following}</span>
-                            </a>
+                            </Link>
                         </div>
                         <div className="stats__following">
-                            <a href="#" className="following__link">
+                            <Link to={"followers/" + auth._id} className="following__link">
                                 <span className="following__title">Seguidores</span>
                                 <span className="following__number">{counters.followed}</span>
-                            </a>
+                            </Link>
                         </div>
 
 

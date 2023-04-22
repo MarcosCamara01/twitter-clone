@@ -262,6 +262,7 @@ body {
 
 .post__button--blue:hover {
     background-color: var(--color-hover-navbar);
+    border-color: var(--color-backgroud-navbar);
 }
 
 .content__container-btn{

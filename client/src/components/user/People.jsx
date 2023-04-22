@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import avatar from "../../assets/img/user.png";
 import { Global } from '../../helpers/Global';
+import { UserList } from './UserList';
 
 export const People = () => {
 
@@ -46,75 +46,22 @@ export const People = () => {
     }
   }
 
-  const nextPage = () => {
-    let next = page + 1;
-    setPage(next);
-    getUsers(next);
-  }
-
   return (
     <>
       <header className="content__header">
         <h1 className="content__title">People</h1>
       </header>
 
-      <div className="content__posts">
-
-        {loading ? "Loading..." : ""}
-
-        {users.map(user => {
-
-          return (
-            <article className="posts__post" key={user._id}>
-
-              <div className="post__container">
-
-                <div className="post__image-user">
-                  <a href="#" className="post__image-link">
-                    {user.image != "default.png" ? <img src={Global.url + "user/avatar/" + user.image} className="post__user-image" alt="Foto de perfil" /> :
-                      <img src={avatar} className="post__user-image" alt="Foto de perfil" />}
-                  </a>
-                </div>
-
-                <div className="post__body">
-
-                  <div className="post__user-info">
-                    <a href="#" className="user-info__name">{user.name} {user.surname}</a>
-                    <span className="user-info__divider"> | </span>
-                    <a href="#" className="user-info__create-date">{user.created_at}</a>
-                  </div>
-
-                  <h4 className="post__content">{user.bio}</h4>
-
-                </div>
-
-              </div>
-
-              <div className="post__buttons">
-                {!following.includes(user._id) &&
-                  <a href="#" className="post__button post__button--blue">
-                    Follow
-                  </a>
-                }
-                {following.includes(user._id) &&
-                  <a href="#" className="post__button">
-                    Unfollow
-                  </a>
-                }
-              </div>
-
-            </article>
-          );
-        })}
-      </div>
-
-      {more &&
-        <div className="content__container-btn">
-          <button className="content__btn-more-post" onClick={nextPage}>
-            Sow more people
-          </button>
-        </div>
-      }
+      <UserList
+        users={users}
+        getUsers={getUsers}
+        following={following}
+        setFollowing={setFollowing}
+        page={page}
+        setPage={setPage}
+        more={more}
+        loading={loading}
+      />
 
       <br />
     </>
