@@ -52,6 +52,11 @@ body {
     color: var(--color-general-text);
 }
 
+.alert {
+    width: 100%;
+    margin: 0 auto;
+}
+
 .layout{
     display: grid;
     grid-template-areas: 

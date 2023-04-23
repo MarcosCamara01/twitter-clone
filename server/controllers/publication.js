@@ -71,7 +71,7 @@ const remove = (req, res) => {
     const publicationId = req.params.id;
 
     // Find y luego un remove
-    Publication.find({ "user": req.user.id, "_id": publicationId }).remove(error => {
+    Publication.find({ "user": req.user.id, "_id": publicationId }).deleteOne(error => {
         if (error) {
             return res.status(500).send({
                 status: "error",

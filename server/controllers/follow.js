@@ -64,7 +64,7 @@ const unfollow = (req, res) => {
     Follow.find({
         "user": userId,
         "followed": followedId
-    }).remove((error, followDeleted) => {
+    }).deleteOne((error, followDeleted) => {
 
         if (error || !followDeleted) {
             return res.status(500).send({

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Global } from '../../helpers/Global';
+import { useParams } from 'react-router-dom';
 import { UserList } from '../user/UserList';
 
 export const Followers = () => {
@@ -10,6 +11,8 @@ export const Followers = () => {
     const [following, setFollowing] = useState();
     const [loading, setLoading] = useState(true);
 
+    const params = useParams();
+
     useEffect(() => {
         getUsers(1);
     }, []);
@@ -17,7 +20,9 @@ export const Followers = () => {
     const getUsers = async (nextPage = 1) => {
         setLoading(true);
 
-        const request = await fetch(Global.url + "user/list/" + nextPage, {
+        const userId = params.userId;
+
+        const request = await fetch(Global.url + "follow/followers/" + userId + "/" + nextPage, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -27,9 +32,17 @@ export const Followers = () => {
 
         const data = await request.json();
 
+        let cleanUsers = [];
+
+        data.follows.forEach(follow => {
+            cleanUsers = [...cleanUsers, follow.user]
+        });
+
+        data.users = cleanUsers;
+
         if (data.users && data.status == "success") {
 
-            let newUsers = data.users
+            let newUsers = data.users;
 
             if (users.length >= 1) {
                 newUsers = [...users, ...data.users]
@@ -49,7 +62,7 @@ export const Followers = () => {
     return (
         <>
             <header className="content__header">
-                <h1 className="content__title">People</h1>
+                <h1 className="content__title">Tus Seguidores</h1>
             </header>
 
             <UserList

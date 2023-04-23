@@ -32,19 +32,27 @@ export const Following = () => {
 
         const data = await request.json();
 
-        if (data.follows && data.status == "success") {
+        let cleanUsers = [];
 
-            let newUsers = data.follows;
+        data.follows.forEach(follow => {
+            cleanUsers = [...cleanUsers, follow.followed]
+        });
+
+        data.users = cleanUsers;
+
+        if (data.users && data.status == "success") {
+
+            let newUsers = data.users;
 
             if (users.length >= 1) {
-                newUsers = [...users, ...data.follows]
+                newUsers = [...users, ...data.users]
             }
 
             setUsers(newUsers);
             setFollowing(data.user_following);
             setLoading(false);
 
-            if (users.length >= (data.total - data.follows.length)) {
+            if (users.length >= (data.total - data.users.length)) {
                 setMore(false);
             }
 
