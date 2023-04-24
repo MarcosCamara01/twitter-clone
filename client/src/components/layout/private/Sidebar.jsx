@@ -82,7 +82,7 @@ export const Sidebar = () => {
                         </div>
 
                         <div className="general-info__container-names">
-                            <a href="#" className="container-names__name">{auth.name + " " + auth.surname}</a>
+                            <Link to={"/social/profile/" + auth._id} className="container-names__name">{auth.name + " " + auth.surname}</Link>
                             <p className="container-names__nickname">{auth.nick}</p>
                         </div>
                     </div>
@@ -90,13 +90,13 @@ export const Sidebar = () => {
                     <div className="profile-info__stats">
 
                         <div className="stats__following">
-                            <Link to={"following/" + auth._id} className="following__link">
+                            <Link to={"/social/following/" + auth._id} className="following__link">
                                 <span className="following__title">Siguiendo</span>
                                 <span className="following__number">{counters.following}</span>
                             </Link>
                         </div>
                         <div className="stats__following">
-                            <Link to={"followers/" + auth._id} className="following__link">
+                            <Link to={"/social/followers/" + auth._id} className="following__link">
                                 <span className="following__title">Seguidores</span>
                                 <span className="following__number">{counters.followed}</span>
                             </Link>
@@ -104,10 +104,10 @@ export const Sidebar = () => {
 
 
                         <div className="stats__following">
-                            <a href="#" className="following__link">
+                            <Link to={"/social/profile/" + auth._id} className="following__link">
                                 <span className="following__title">Publicaciones</span>
                                 <span className="following__number">{counters.publications}</span>
-                            </a>
+                            </Link>
                         </div>
 
 

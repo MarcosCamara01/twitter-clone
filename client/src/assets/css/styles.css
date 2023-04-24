@@ -179,6 +179,10 @@ body {
     cursor: pointer;
 }
 
+.content__button--right {
+    float: right;
+}
+
 
 .content__button:hover, .content__btn-more-post:hover {
     background-color: var(--color-background-btn-success-hover);
