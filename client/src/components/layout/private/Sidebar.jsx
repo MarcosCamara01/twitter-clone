@@ -58,10 +58,9 @@ export const Sidebar = () => {
             }
         }
 
-        if (stored == "stored") {
-            const myForm = document.querySelector("#publication-form");
-            myForm.reset();
-        }
+        const myForm = document.querySelector("#publication-form");
+        myForm.reset();
+        
     }
 
     return (
