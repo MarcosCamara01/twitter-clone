@@ -70,7 +70,7 @@ export const UserList = ({ users, getUsers, following, setFollowing, page, setPa
 
                                     <div className="post__user-info">
                                         <Link to={"/social/profile/"+user._id} className="user-info__name">{user.name} {user.surname}</Link>
-                                        <span className="user-info__divider"> | </span>
+                                        <span className="user-info__divider"> · </span>
                                         <Link to={"/social/profile/"+user._id} className="user-info__create-date"><ReactTimeAgo date={new Date(user.created_at).getTime()} locale='es-ES' /></Link>
                                     </div>
 
@@ -83,7 +83,7 @@ export const UserList = ({ users, getUsers, following, setFollowing, page, setPa
                             {user._id != auth._id &&
                                 <div className="post__buttons">
                                     {!following.includes(user._id) &&
-                                        <button className="post__button post__button--blue"
+                                        <button className="post__button--white"
                                             onClick={() => { follow(user._id) }}
                                         >
                                             Follow
@@ -93,7 +93,7 @@ export const UserList = ({ users, getUsers, following, setFollowing, page, setPa
                                         <button className="post__button"
                                             onClick={() => { unfollow(user._id) }}
                                         >
-                                            Unfollow
+                                            <div></div>
                                         </button>
                                     }
                                 </div>

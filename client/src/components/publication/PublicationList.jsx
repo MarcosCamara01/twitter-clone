@@ -49,14 +49,14 @@ export const PublicationList = ({publications, getPublications, page, setPage, m
                                 <div className="post__body">
 
                                     <div className="post__user-info">
-                                        <Link to={"/social/profile/" + publication.user._id} className="user-info__name">{publication.user.name + " " + publication.user.surname}</Link>
-                                        <span className="user-info__divider"> | </span>
+                                        <Link to={"/social/profile/" + publication.user._id} className="user-info__name">{publication.user.nick}</Link>
+                                        <span className="user-info__divider"> · </span>
                                         <Link to={"/social/profile/" + publication.user._id} className="user-info__create-date"><ReactTimeAgo date={new Date(publication.created_at).getTime()} locale='es-ES' /></Link>
                                     </div>
 
                                     <h4 className="post__content">{publication.text}</h4>
 
-                                    {publication.file && <img src={Global.url + "publication/media/" + publication.file} />}
+                                    {publication.file && <div className='post__img'><img src={Global.url + "publication/media/" + publication.file} /></div>}
 
                                 </div>
 

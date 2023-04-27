@@ -10,6 +10,11 @@ export const Sidebar = () => {
     const { auth, counters } = useAuth();
     const { form, changed } = useForm({});
     const [stored, setStored] = useState("not_stored");
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    const handleImageChange = (event) => {
+        setSelectedImage(event.target.files[0]);
+    }
 
     const savePublication = async (e) => {
         e.preventDefault();
@@ -60,7 +65,7 @@ export const Sidebar = () => {
 
         const myForm = document.querySelector("#publication-form");
         myForm.reset();
-        
+
     }
 
     return (
@@ -128,7 +133,10 @@ export const Sidebar = () => {
 
                         <div className="form-post__inputs">
                             <label htmlFor="file" className="form-post__label">Sube tu foto</label>
-                            <input type="file" name="file0" id='file' className="form-post__image" />
+                            <input type="file" name="file0" id='file' className="form-post__image" accept="image/*" onChange={handleImageChange} />
+                            {selectedImage && (
+                                <img src={URL.createObjectURL(selectedImage)} alt="Imagen seleccionada" />
+                            )}
                         </div>
 
                         <input type="submit" value="Enviar" className="form-post__btn-submit" />

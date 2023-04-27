@@ -140,9 +140,9 @@ export const Profile = () => {
                             <h1>{user.name} {user.surname}</h1>
                             {user._id != auth._id &&
                                 (iFollow ?
-                                    <button onClick={() => unfollow(user._id)} className="content__button content__button--right post__button">UnFollow</button>
+                                    <button onClick={() => unfollow(user._id)} className="post__button"><div></div></button>
                                     :
-                                    <button onClick={() => follow(user._id)} className="content__button content__button--right">Follow</button>
+                                    <button onClick={() => follow(user._id)} className="post__button--white">Follow</button>
                                 )
                             }
                         </div>

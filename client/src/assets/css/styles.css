@@ -1,26 +1,21 @@
 /*ESTILOS GENERALES*/
 :root {
-    --color-general-text: #333;
-    --color-backgroud-navbar: #3785e5;
-    --color-text-navbar: white;
-    --color-hover-navbar: #1756cc;
+    --color-general-text: #E7E9EA;
+    --color-text-grey: #71767B;
+    --color-text-black: #0F1419;
 
-    --color-border-headers: #eee;
+    --color-border-headers: rgb(47, 51, 54);
 
-    --color-background-btn-success: #5cb85c;
-    --color-border-btn-success: #4cae4c;
-    --color-background-btn-success-hover: #449d44;
-    --color-border-btn-success-hover: #398439;
+    --color-background-btn-success: rgb(239, 243, 244);
+    --color-background-btn-success-hover: rgb(215, 219, 220);
 
-    --color-background-btn-delete: #d9534f;
-    --color-border-btn-delete: #d43f3a;
-    --color-background-btn-delete-hover: #c9302c;
-    --color-border-btn-delete-hover: #ac2925;
+    --color-btn-delete: rgb(244, 33, 46);
+    --color-border-btn-delete: rgb(103, 7, 15);
+    --color-background-btn-delete-hover: rgba(244, 33, 46, 0.1);
 
-    --color-border-post: #ddd;
+    --color-border-post: rgb(47, 51, 54);
     --color-name-user: #337ab7;
 
-    --color-text-black: #555;
     --color-text-nickname: #969393;
     --color-number-stats: green;
 
@@ -48,8 +43,9 @@ body {
     width: 100%;
     height: 100%;
     font-size: 14px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: var(--color-general-text);
+    background-color: rgb(0, 0, 0);
 }
 
 .alert {
@@ -57,22 +53,26 @@ body {
     margin: 0 auto;
 }
 
-.layout{
+.user-info__divider {
+    color: var(--color-text-grey);
+}
+
+.layout {
     display: grid;
-    grid-template-areas: 
-        "nav nav " 
+    grid-template-areas:
+        "nav nav "
         "content aside";
     grid-template-rows: 60px auto auto;
     grid-template-columns: 70% 30%;
     width: 100%;
     height: 100%;
     max-height: 80rem;
-        
+
 }
 
 
 /*ESTILOS NAVBAR*/
-.layout__navbar{
+.layout__navbar {
     width: 100%;
     grid-area: nav;
     background-color: var(--color-backgroud-navbar);
@@ -83,75 +83,78 @@ body {
     height: 5.3rem;
 }
 
-.layout__navbar *{
+.layout__navbar * {
     color: var(--color-text-navbar);
 }
 
-.navbar__title{
+.navbar__title {
     font-size: 1.8rem;
     padding: 1.8rem;
 }
 
-.navbar__container-lists{
+.navbar__container-lists {
     width: 95%;
     display: flex;
     justify-content: space-between;
     padding-left: 1.5rem;
 }
 
-.container-lists__menu-list{
+.container-lists__menu-list {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.menu-list__link{
+.menu-list__link {
     padding: 1.8rem;
 }
 
-.menu-list__title{
+.menu-list__title {
     padding: 0.5rem;
 }
 
-.navbar__title:hover, .menu-list__link:hover,
-.list-end__link:hover, .list-end__item:first-child:hover{
+.navbar__title:hover,
+.menu-list__link:hover,
+.list-end__link:hover,
+.list-end__item:first-child:hover {
     background-color: var(--color-hover-navbar);
 }
 
-.container-lists__list-end{
+.container-lists__list-end {
     display: flex;
     align-items: center;
 }
 
-.list-end__item:first-child{
+.list-end__item:first-child {
     padding: 0.6rem;
 }
 
-.list-end__img{
+.list-end__img {
     width: 4rem;
     height: 4rem;
     border-radius: 3.2rem;
 }
 
-.list-end__link{
+.list-end__link {
     padding: 1.8rem;
 }
 
-.list-end__name{
+.list-end__name {
     padding: 0.5rem;
 }
 
 /*ESTILOS DE CONTENIDO*/
-.layout__content{
+.layout__content {
     grid-area: content;
     padding: 0 1.5rem;
 }
 
-.content__login{
+.content__login {
     margin-top: 4.5rem;
 }
 
-.content__header, .aside__header{
+.content__header,
+.aside__header {
     width: 100%;
     border-bottom: 1px solid var(--color-border-headers);
     margin-top: 1rem;
@@ -160,15 +163,16 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-   
+
 }
 
-.content__title, .aside__title{
+.content__title,
+.aside__title {
     font-size: 3.5rem;
     margin-right: 1rem;
 }
 
-.content__button{
+.content__button {
     background-color: var(--color-background-btn-success);
     color: var(--color-text-navbar);
     padding: 0.5rem 1rem;
@@ -179,23 +183,19 @@ body {
     cursor: pointer;
 }
 
-.content__button--right {
-    float: right;
-}
-
-
-.content__button:hover, .content__btn-more-post:hover {
+.content__button:hover,
+.content__btn-more-post:hover {
     background-color: var(--color-background-btn-success-hover);
     border-color: var(--color-border-btn-success-hover);
 }
 
 
-.content__posts{
+.content__posts {
     width: 100%;
 }
 
 
-.posts__post{
+.posts__post {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -207,12 +207,12 @@ body {
 }
 
 
-.post__container{
+.post__container {
     display: flex;
     flex-direction: row;
 }
 
-.post__image-user{
+.post__image-user {
     width: 7.5rem;
     height: 7.5rem;
     border-radius: 100rem;
@@ -220,67 +220,99 @@ body {
     overflow: hidden;
 }
 
-.post__user-image{
+.post__user-image {
     width: 100%;
     height: 100%;
     border-radius: 3.2rem;
 }
 
-.post__user-info{
+.post__user-info {
     margin-top: 1rem;
 }
 
-.user-info__name{
-    color: var(--color-name-user);
+.user-info__name {
+    color: var(--color-general-text);
+    font-weight: 700;
 }
 
-.user-info__create-date{
+.user-info__create-date {
     color: gray;
 }
 
-.post__content{
-    margin: 1rem 0;
-    font-size: 1.8rem;
-    font-weight: 500;
+.post__content {
+    margin: 5px 0;
+    font-size: 15px;
+    font-weight: 400;
 }
 
-.post__buttons{
+.post__img {
+    margin-top: 12px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.post__buttons {
     display: flex;
     align-items: center;
- 
+
 }
 
-.post__button{
-    color: var(--color-text-navbar);
-    padding: 1rem 1.5rem;
-    font-size: 1.4rem;
-    border-radius: 0.4rem;
-    background-color: var(--color-background-btn-delete);
+.post__button {
+    color: var(--color-general-text);
+    padding: 0 16px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 9999px;
+    min-width: 36px;
+    min-height: 36px;
+    background-color: transparent;
+    border: 1px solid var(--color-general-text);
+    cursor: pointer;
+}
+
+.post__button div {
+    width: 80px;
+}
+
+.post__button:hover div::before {
+    content: "Unfollow ";
+}
+
+.post__button div::before {
+    content: "Following";
+}
+
+.post__button:hover {
+    color: var(--color-btn-delete);
     border-color: var(--color-border-btn-delete);
-}
-
-.post__button--blue {
-    background-color: var(--color-backgroud-navbar);
-    border-color: var(--color-hover-navbar);
-}
-
-.post__button:hover{
     background-color: var(--color-background-btn-delete-hover);
-    border-color: var(--color-border-btn-delete-hover);
 }
 
-.post__button--blue:hover {
-    background-color: var(--color-hover-navbar);
-    border-color: var(--color-backgroud-navbar);
+.post__button--white {
+    padding: 0 16px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 9999px;
+    min-width: 36px;
+    min-height: 36px;
+    cursor: pointer;
+    color: var(--color-text-black);
+    background-color: var(--color-background-btn-success);
+    border-color: transparent;
 }
 
-.content__container-btn{
+.post__button--white:hover {
+    color: var(--color-text-black);
+    background-color: var(--color-background-btn-success-hover);
+}
+
+.content__container-btn {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.content__btn-more-post{
+.content__btn-more-post {
     background-color: var(--color-background-btn-success);
     color: var(--color-text-navbar);
     padding: 0.5rem 1rem;
@@ -293,31 +325,31 @@ body {
 }
 
 /*ESTILOS BARRA LATERAL*/
-.layout__aside{
+.layout__aside {
     grid-area: aside;
     margin-right: 2rem;
-    
+
 }
 
-.aside__container{
+.aside__container {
     width: 100%;
-    
+
 }
 
-.aside__profile-info{
+.aside__profile-info {
     border: 1px solid var(--color-border-post);
     padding: 2.5rem;
     margin-bottom: 2rem;
     border-radius: 0.4rem;
 }
 
-.profile-info__general-info{
+.profile-info__general-info {
     width: 100%;
     display: flex;
     flex-direction: row;
 }
 
-.general-info__container-avatar{
+.general-info__container-avatar {
     width: 7.5rem;
     height: 7.5rem;
     border-radius: 100rem;
@@ -325,21 +357,28 @@ body {
     overflow: hidden;
 }
 
-.container-avatar__img{
+.container-avatar__img {
     height: 100%;
 }
 
-.container-names__name{
-    color: var( --color-text-black);
+.general-info__container-names {
+    width: 100%;
+}
+
+.container-names__name {
+    color: var(--color-text-grey);
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-names__nickname {
+    color: var(--color-text-nickname);
     font-size: 1.7rem;
 }
 
-.container-names__nickname{
-    color: var( --color-text-nickname);
-    font-size: 1.7rem;
-}
-
-.profile-info__stats{
+.profile-info__stats {
     width: 100%;
     margin-top: 1rem;
     display: flex;
@@ -347,63 +386,69 @@ body {
     border-top: 1px solid var(--color-border-headers);
 }
 
-.stats__following:first-child{
+.stats__following:first-child {
     padding-left: 0.6rem;
 }
 
-.stats__following{
+.stats__following {
     margin-top: 1rem;
     padding: 0 1.8rem;
-    border-right: 2px solid var(--color-border-headers);
     text-align: center;
 }
 
+.following__link {
+    display: flex;
+    gap: 5px;
+}
 
+.following__link:hover {
+    text-decoration: underline;
+}
 
-.following__title{
+.following__title {
     display: block;
     font-weight: bold;
-    color: var( --color-text-black);
+    color: var(--color-text-grey);
 }
 
-.following__number{
+.following__number {
     font-weight: bold;
-    color: var(--color-number-stats);
+    color: var(--color-general-text);
 }
 
-.following__link:hover >  .following__number{
-    color: var(--color-hover-navbar);
-}
-
-
-.aside__container-form{
+.aside__container-form {
     width: 100%;
     border: 1px solid var(--color-border-post);
     padding: 2.5rem;
     border-radius: 0.4rem;
 }
 
-.container-form__form-post{
+.container-form__form-post {
     width: 100%;
 }
 
-form{
+form {
     max-width: 300px;
 }
 
-.aside__container-form form{
+.aside__container-form form {
     max-width: 100%;
 }
 
-.form-post__inputs, 
+.form-post__inputs,
 input[type="text"],
 input[type="email"],
 input[type="password"],
-textarea{
+textarea {
     margin-bottom: 1rem;
 }
 
-.form-post__label, label{
+input[type="file"] {
+    color: transparent;
+}
+
+.form-post__label,
+label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 700;
@@ -413,13 +458,13 @@ textarea{
 input[type="text"],
 input[type="email"],
 input[type="password"],
-textarea{
+textarea {
     display: block;
     width: 100%;
     height: auto;
     padding: 0.6rem 1.2rem;
     font-size: 14px;
-    color: var( --color-text-black);
+    color: var(--color-text-grey);
     border: 1px solid var(--color-border-textarea);
     border-radius: 4px;
     outline: none;
@@ -430,28 +475,11 @@ textarea{
 .form-post__textarea:focus,
 input[type="text"]:focus,
 input[type="email"]:focus,
-input[type="password"]:focus
-textarea:focus{
+input[type="password"]:focus textarea:focus {
     border-color: var(--color-border-textarea-focus);
     box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
 }
 
-.form-post__image{
+.form-post__image {
     width: 100%;
 }
-
-
-.form-post__btn-submit,
-input[type="submit"],
-button{
-    background-color: var(--color-background-btn-success);
-    color: var(--color-text-navbar) !important;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--color-border-btn-success);
-    border-radius: 0.3rem;
-    font-size: 1.2rem;
-    line-height: 1.5;
-    cursor: pointer;
-    font-size: 1.4rem;
-}
-
