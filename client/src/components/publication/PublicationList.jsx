@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import ReactTimeAgo from "react-time-ago";
 
-export const PublicationList = ({publications, getPublications, page, setPage, more, setMore}) => {
+export const PublicationList = ({ publications, getPublications, page, setPage, more, setMore }) => {
 
     const { auth } = useAuth();
 
@@ -51,7 +51,7 @@ export const PublicationList = ({publications, getPublications, page, setPage, m
                                     <div className="post__user-info">
                                         <Link to={"/social/profile/" + publication.user._id} className="user-info__name">{publication.user.nick}</Link>
                                         <span className="user-info__divider"> · </span>
-                                        <Link to={"/social/profile/" + publication.user._id} className="user-info__create-date"><ReactTimeAgo date={new Date(publication.created_at).getTime()} locale='es-ES' /></Link>
+                                        <Link to={"/social/profile/" + publication.user._id} className="user-info__create-date"><ReactTimeAgo date={new Date(publication.created_at).getTime()} locale='es-ES' timeStyle="twitter" /></Link>
                                     </div>
 
                                     <h4 className="post__content">{publication.text}</h4>

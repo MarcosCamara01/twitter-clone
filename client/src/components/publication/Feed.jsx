@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import avatar from "../../assets/img/user.png";
-import { useParams } from "react-router-dom";
 import { Global } from '../../helpers/Global';
-import { Link } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
 import { PublicationList } from '../publication/PublicationList';
+import { Post } from './Post';
 
 export const Feed = () => {
 
-    const { auth } = useAuth();
     const [publications, setPublications] = useState([]);
     const [page, setPage] = useState(1);
     const [more, setMore] = useState(false);
-    const params = useParams();
 
     useEffect(() => {
         getPublications(1, false);
@@ -62,6 +57,8 @@ export const Feed = () => {
                 <button className="content__button" onClick={() => getPublications(1, true)}>Mostrar nuevas</button>
             </header>
 
+            <Post />
+
             <PublicationList
                 publications={publications}
                 getPublications={getPublications}
@@ -70,7 +67,6 @@ export const Feed = () => {
                 more={more}
                 setMore={setMore}
             />
-
             <br />
         </>
     )

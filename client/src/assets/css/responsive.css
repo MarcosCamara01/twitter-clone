@@ -17,11 +17,6 @@
         margin-left: 2rem;
         padding-bottom: 2rem;
     }
-
-    .aside__profile-info{
-        margin-right: 2rem;
-    }
-
 }
 
 @media (max-width: 845px) {
