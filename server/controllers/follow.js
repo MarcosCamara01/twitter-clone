@@ -96,7 +96,7 @@ const following = (req, res) => {
     if (req.params.page) page = req.params.page;
 
     // Usuarios por pagina quiero mostrar
-    const itemsPerPage = 5;
+    const itemsPerPage = 15;
 
     // Find a follow, popular datos de los usuario y paginar con mongoose paginate
     Follow.find({user: userId})

@@ -99,7 +99,7 @@ const user = (req, res) => {
 
     if (req.params.page) page = req.params.page
 
-    const itemsPerPage = 5;
+    const itemsPerPage = 15;
 
     // Find, populate, ordenar, paginar
     Publication.find({ "user": userId })
@@ -214,7 +214,7 @@ const feed = async (req, res) => {
     }
 
     // Establecer numero de elementos por pagina
-    let itemsPerPage = 5;
+    let itemsPerPage = 30;
 
     // Sacar un array de identificadores de usuarios que yo sigo como usuario logueado
     try {

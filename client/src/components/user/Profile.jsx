@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import avatar from "../../assets/img/user.png";
-import { GetProfile } from '../../helpers/GetProfile';
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { Global } from '../../helpers/Global';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { PublicationList } from '../publication/PublicationList';
+import { GetProfile } from '../../helpers/getProfile';
 
 export const Profile = () => {
 
@@ -138,12 +138,18 @@ export const Profile = () => {
                     <div className="general-info__container-names">
                         <div className="container-names__name">
                             <h1>{user.name} {user.surname}</h1>
-                            {user._id != auth._id &&
+                            {user._id != auth._id ?
                                 (iFollow ?
                                     <button onClick={() => unfollow(user._id)} className="post__button"><div></div></button>
                                     :
                                     <button onClick={() => follow(user._id)} className="post__button--white">Follow</button>
                                 )
+                                :
+                                <>
+                                    <button className="post__button--white">
+                                        <NavLink to="/social/settings">Editar perfil</NavLink>
+                                    </button>
+                                </>
                             }
                         </div>
                         <h2 className="container-names__nickname">{user.nick}</h2>

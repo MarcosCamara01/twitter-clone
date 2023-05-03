@@ -52,13 +52,8 @@ export const Feed = () => {
 
     return (
         <>
-            <header className="content__header">
-                <h1 className="content__title">Timeline</h1>
-                <button className="content__button" onClick={() => getPublications(1, true)}>Mostrar nuevas</button>
-            </header>
-
             <Post />
-
+            <button className="content__button" onClick={() => getPublications(1, true)}>Mostrar nuevas</button>
             <PublicationList
                 publications={publications}
                 getPublications={getPublications}

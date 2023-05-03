@@ -175,7 +175,7 @@ const list = (req, res) => {
     page = parseInt(page);
 
     // Consulta con mongoose paginate
-    let itemsPerPage = 5;
+    let itemsPerPage = 15;
 
     User.find().select("-password -email -role -__v").sort('_id').paginate(page, itemsPerPage, async (error, users, total) => {
 

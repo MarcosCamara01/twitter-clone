@@ -64,10 +64,6 @@ export const Followers = () => {
 
     return (
         <>
-            <header className="content__header">
-                <h1 className="content__title">Tus Seguidores, {userProfile.nick}</h1>
-            </header>
-
             <UserList
                 users={users}
                 getUsers={getUsers}

@@ -55,7 +55,7 @@ export const UserList = ({ users, getUsers, following, setFollowing, page, setPa
 
                 {users.map(user => {
                     return (
-                        <article className="posts__post" key={user._id}>
+                        <article className="posts__post post__people" key={user._id}>
 
                             <div className="post__container">
 

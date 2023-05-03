@@ -70,9 +70,6 @@ export const Config = () => {
 
   return (
     <>
-      <header className="content__header content__header--public">
-        <h1 className="content__title">Settings</h1>
-      </header>
       <div className="content__posts">
         <strong className='alert alert-success'>{saved == "saved" ? "User successfully updated" : ""}</strong>
         <strong className='alert alert-error'>{saved == "error" ? "The user has not updated correctly" : ""}</strong>
