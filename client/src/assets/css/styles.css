@@ -131,7 +131,8 @@ body {
     border-radius: 3.2rem;
 }
 
-.list-end__name, .menu-list__title {
+.list-end__name,
+.menu-list__title {
     padding: 0 0 0 10px;
 }
 
@@ -199,7 +200,7 @@ body {
     padding: 1.5rem;
 }
 
-.post__people{
+.post__people {
     border-top: 1px solid var(--color-border-post);
 }
 
@@ -210,7 +211,7 @@ body {
 }
 
 .post__image-user {
-    width: 48px; 
+    width: 48px;
     height: 48px;
     border-radius: 100rem;
     overflow: hidden;
@@ -419,48 +420,78 @@ form {
 }
 
 .container-form form {
-    max-width: 100%;
+    max-width: 90%;
 }
 
-.form-post__inputs,
-input[type="text"],
-input[type="email"],
-input[type="password"],
-textarea {
-    margin-bottom: 1rem;
+.form-post__inputs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+    border-top: 1px solid var(--color-border-post);
 }
 
-.form-post__label,
-label {
+.form-post__textarea {
     display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 700;
-}
-
-.form-post__textarea,
-input[type="text"],
-input[type="email"],
-input[type="password"],
-textarea {
-    display: block;
+    resize: none;
     width: 100%;
-    height: auto;
+    height: 40px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    color: var(--color-text-grey);
+    border: 0;
+    background-color: #000;
+    outline: none;
+}
+
+.form-post__textarea:focus {
+    color: var(--color-general-text);
+}
+
+.image__selected {
+    margin-bottom: 15px;
+    overflow: hidden;
+    max-width: 550px;
+    max-height: 550px;
+}
+
+.image__selected img {
+    border-radius: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    display: block;
+    resize: none;
+    width: 100%;
+    height: 30px;
     padding: 0.6rem 1.2rem;
     font-size: 14px;
     color: var(--color-text-grey);
-    border: 1px solid var(--color-border-textarea);
+    border: transparent;
+    background-color: #000;
     border-radius: 4px;
     outline: none;
     box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
     transition: all ease-in-out 150ms;
 }
 
-.form-post__textarea:focus,
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus textarea:focus {
-    border-color: var(--color-border-textarea-focus);
-    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
+.form-post__btn-submit {
+    background-color: rgb(29, 155, 240);
+    border: 0;
+    padding: 6px 17px;
+    border-radius: 9999px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 150ms ease;
+}
+
+.form-post__btn-submit:hover {
+    background-color: rgb(26, 140, 216);
 }
 
 .form-post__image {

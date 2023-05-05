@@ -53,7 +53,6 @@ export const Feed = () => {
     return (
         <>
             <Post />
-            <button className="content__button" onClick={() => getPublications(1, true)}>Mostrar nuevas</button>
             <PublicationList
                 publications={publications}
                 getPublications={getPublications}

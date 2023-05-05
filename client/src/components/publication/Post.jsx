@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useAuth } from '../../hooks/useAuth';
 import { Global } from '../../helpers/Global';
 import { useForm } from '../../hooks/useForm';
+import { NavLink } from 'react-router-dom';
 
 export const Post = () => {
 
@@ -12,6 +13,10 @@ export const Post = () => {
 
     const handleImageChange = (event) => {
         setSelectedImage(event.target.files[0]);
+    }
+
+    const handleResetImage = () => {
+        setSelectedImage(null);
     }
 
     const savePublication = async (e) => {
@@ -68,29 +73,32 @@ export const Post = () => {
 
     return (
         <div className="container-form">
-
-            <strong className='alert alert-success'>{stored == "stored" ? "Correctly published" : ""}</strong>
-            <strong className='alert alert-error'>{stored == "error" ? "Could not be published" : ""}</strong>
-
-            <form id='publication-form' className="container-form__form-post" onSubmit={savePublication}>
-
-                <div className="form-post__inputs">
-                    <label htmlFor="text" className="form-post__label">¿Que estas pesando hoy?</label>
-                    <textarea name="text" className="form-post__textarea" onChange={changed} />
+            <div className='post__container'>
+                <div className="post__image-user">
+                    <NavLink to={"/social/profile/" + auth._id} className="post__image-link">
+                        {auth.image != "default.png" ? <img src={Global.url + "user/avatar/" + auth.image} className="post__user-image" alt="Foto de perfil" /> :
+                            <img src={avatar} className="post__user-image" alt="Foto de perfil" />}
+                    </NavLink>
                 </div>
 
-                <div className="form-post__inputs">
-                    <label htmlFor="file" className="form-post__label">Sube tu foto</label>
-                    <input type="file" name="file0" id='file' className="form-post__image" accept="image/*" onChange={handleImageChange} />
-                    {selectedImage && (
-                        <img src={URL.createObjectURL(selectedImage)} alt="Imagen seleccionada" />
-                    )}
-                </div>
+                <form id='publication-form' className="container-form__form-post" onSubmit={savePublication}>
 
-                <input type="submit" value="Enviar" className="form-post__btn-submit" />
+                    <div className="form-post__textarea">
+                        <textarea name="text" className="form-post__textarea" onChange={changed} placeholder="¿Qué está pasando?" />
+                    </div>
 
-            </form>
+                    <div className='image__selected'>
+                        {selectedImage && (
+                            <img src={URL.createObjectURL(selectedImage)} alt="Imagen seleccionada" />
+                        )}
+                    </div>
 
+                    <div className="form-post__inputs">
+                        <input type="file" name="file0" id='file' className="form-post__image" accept="image/*" onChange={handleImageChange} />
+                        <input type="submit" value="Twittear" className="form-post__btn-submit" onClick={handleResetImage} />
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }
