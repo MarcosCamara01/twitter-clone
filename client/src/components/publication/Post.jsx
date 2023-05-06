@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useAuth } from '../../hooks/useAuth';
 import { Global } from '../../helpers/Global';
 import { useForm } from '../../hooks/useForm';
@@ -10,14 +10,18 @@ export const Post = () => {
     const { form, changed } = useForm({});
     const [stored, setStored] = useState("not_stored");
     const [selectedImage, setSelectedImage] = useState(null);
+    const fileInputRef = useRef();
 
-    const handleImageChange = (event) => {
-        setSelectedImage(event.target.files[0]);
+    const handleImageChange = () => {
+        const selectedImage = fileInputRef.current.files[0];
+        setSelectedImage(selectedImage);
+        console.log(selectedImage)
     }
 
     const handleResetImage = () => {
         setSelectedImage(null);
-    }
+        fileInputRef.current.value = null;
+    };
 
     const savePublication = async (e) => {
         e.preventDefault();
@@ -83,19 +87,35 @@ export const Post = () => {
 
                 <form id='publication-form' className="container-form__form-post" onSubmit={savePublication}>
 
-                    <div className="form-post__textarea">
+                    <div className="form-">
                         <textarea name="text" className="form-post__textarea" onChange={changed} placeholder="¿Qué está pasando?" />
                     </div>
 
-                    <div className='image__selected'>
-                        {selectedImage && (
+                    {selectedImage && (
+                        <div className='image__selected' onClick={handleResetImage}>
+                            <div className="button_delete">
+                                <i className="fas fa-times"></i>
+                            </div>
                             <img src={URL.createObjectURL(selectedImage)} alt="Imagen seleccionada" />
-                        )}
-                    </div>
+                        </div>
+                    )}
 
                     <div className="form-post__inputs">
-                        <input type="file" name="file0" id='file' className="form-post__image" accept="image/*" onChange={handleImageChange} />
-                        <input type="submit" value="Twittear" className="form-post__btn-submit" onClick={handleResetImage} />
+                        <input
+                            type="file"
+                            name="file0"
+                            id='file'
+                            className="form-post__image"
+                            accept="image/*"
+                            onChange={handleImageChange}
+                            ref={fileInputRef}
+                        />
+                        <input
+                            type="submit"
+                            value="Twittear"
+                            className="form-post__btn-submit"
+                            onClick={handleResetImage}
+                        />
                     </div>
                 </form>
             </div>

@@ -146,13 +146,13 @@ export const Profile = () => {
                                 )
                                 :
                                 <>
-                                    <button className="post__button--white">
+                                    <button className="post__button post__button--normal">
                                         <NavLink to="/social/settings">Editar perfil</NavLink>
                                     </button>
                                 </>
                             }
                         </div>
-                        <h2 className="container-names__nickname">{user.nick}</h2>
+                        <h2 className="container-names__nickname">{" @"+user.nick}</h2>
                         <p>{user.bio}</p>
                     </div>
                 </div>

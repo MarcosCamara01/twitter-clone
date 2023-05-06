@@ -241,6 +241,9 @@ body {
     margin: 5px 0;
     font-size: 15px;
     font-weight: 400;
+    max-width: 500px;
+    height: auto;
+    overflow: hidden;
 }
 
 .post__img {
@@ -271,6 +274,7 @@ body {
     background-color: transparent;
     border: 1px solid var(--color-general-text);
     cursor: pointer;
+    transition: all 0.1s ease;
 }
 
 .post__button div {
@@ -309,6 +313,15 @@ body {
     background-color: var(--color-background-btn-success-hover);
 }
 
+.post__button--normal a {
+    color: var(--color-general-text);
+}
+
+.post__button--normal:hover {
+    border: 1px solid var(--color-general-text);
+    background-color: rgba(239, 243, 244, 0.1);
+}
+
 .content__container-btn {
     width: 100%;
     display: flex;
@@ -338,8 +351,6 @@ body {
 
 .profile-info__general-info {
     width: 100%;
-    display: flex;
-    flex-direction: row;
 }
 
 .general-info__container-avatar {
@@ -359,16 +370,27 @@ body {
 }
 
 .container-names__name {
-    color: var(--color-text-grey);
-    font-size: 1.7rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 10px;
+}
+
+.container-names__name h1 {
+    color: var(--color-general-text);
+    font-size: 20px;
+    font-weight: 800;
 }
 
 .container-names__nickname {
     color: var(--color-text-nickname);
-    font-size: 1.7rem;
+    font-size: 15px;
+    line-height: 0.9;
+    font-weight: 400;
+}
+
+.general-info__container-names p {
+    margin-top: 12px;
 }
 
 .profile-info__stats {
@@ -432,12 +454,12 @@ form {
 }
 
 .form-post__textarea {
-    display: block;
     resize: none;
+    overflow: hidden;
+    height: auto;
+    min-height: 20px;
     width: 100%;
-    height: 40px;
     font-size: 20px;
-    margin-bottom: 10px;
     font-weight: 400;
     color: var(--color-text-grey);
     border: 0;
@@ -454,10 +476,30 @@ form {
     overflow: hidden;
     max-width: 550px;
     max-height: 550px;
+    position: relative;
 }
 
 .image__selected img {
     border-radius: 15px;
+}
+
+.button_delete {
+    top: 5px;
+    left: 5px;
+    border-radius: 9999px;
+    width: 30px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(15, 20, 25, 0.75);
+}
+
+.button_delete i {
+    font-size: 17px;
 }
 
 input[type="text"],
