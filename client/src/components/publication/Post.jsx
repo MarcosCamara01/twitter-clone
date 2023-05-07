@@ -10,21 +10,20 @@ export const Post = () => {
     const { form, changed } = useForm({});
     const [stored, setStored] = useState("not_stored");
     const [selectedImage, setSelectedImage] = useState(null);
-    const fileInputRef = useRef();
 
-    const handleImageChange = () => {
-        const selectedImage = fileInputRef.current.files[0];
-        setSelectedImage(selectedImage);
-        console.log(selectedImage)
+    const handleImageChange = (event) => {
+        setSelectedImage(event.target.files[0]);
     }
 
-    const handleResetImage = () => {
+    const handleReset = () => {
         setSelectedImage(null);
-        fileInputRef.current.value = null;
+        document.getElementById('file').value = null;
     };
 
     const savePublication = async (e) => {
         e.preventDefault();
+
+        setSelectedImage(null);
 
         const token = localStorage.getItem("token")
 
@@ -48,7 +47,7 @@ export const Post = () => {
             setStored("error");
         }
 
-        const fileInput = document.querySelector("#file");
+        const fileInput = document.getElementById('file');
 
         if (data.status == "success" && fileInput.files[0]) {
             const formData = new FormData();
@@ -72,7 +71,6 @@ export const Post = () => {
 
         const myForm = document.querySelector("#publication-form");
         myForm.reset();
-
     }
 
     return (
@@ -92,8 +90,8 @@ export const Post = () => {
                     </div>
 
                     {selectedImage && (
-                        <div className='image__selected' onClick={handleResetImage}>
-                            <div className="button_delete">
+                        <div className='image__selected'>
+                            <div className="button_delete" onClick={handleReset}>
                                 <i className="fas fa-times"></i>
                             </div>
                             <img src={URL.createObjectURL(selectedImage)} alt="Imagen seleccionada" />
@@ -101,20 +99,16 @@ export const Post = () => {
                     )}
 
                     <div className="form-post__inputs">
-                        <input
-                            type="file"
-                            name="file0"
-                            id='file'
-                            className="form-post__image"
-                            accept="image/*"
-                            onChange={handleImageChange}
-                            ref={fileInputRef}
-                        />
+                        <div className="box__icon">
+                            <label htmlFor="file" className="custom-file-upload">
+                                <i className="fa-regular fa-image"></i>
+                            </label>
+                            <input type="file" id="file" name="file0" accept="image/*" onChange={handleImageChange} />
+                        </div>
                         <input
                             type="submit"
                             value="Twittear"
                             className="form-post__btn-submit"
-                            onClick={handleResetImage}
                         />
                     </div>
                 </form>

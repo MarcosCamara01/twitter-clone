@@ -40,8 +40,6 @@ html {
 
 
 body {
-    width: 100%;
-    height: 100%;
     font-size: 14px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: var(--color-general-text);
@@ -69,6 +67,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10;
 }
 
 .layout__navbar * {
@@ -189,7 +188,6 @@ body {
     width: 100%;
 }
 
-
 .posts__post {
     width: 100%;
     display: flex;
@@ -238,10 +236,9 @@ body {
 }
 
 .post__content {
-    margin: 5px 0;
     font-size: 15px;
     font-weight: 400;
-    max-width: 500px;
+    max-width: 550px;
     height: auto;
     overflow: hidden;
 }
@@ -353,7 +350,7 @@ body {
     width: 100%;
 }
 
-.general-info__container-avatar {
+.profile__container-avatar {
     width: 7.5rem;
     height: 7.5rem;
     border-radius: 100rem;
@@ -414,12 +411,19 @@ body {
 .following__link {
     display: flex;
     gap: 5px;
+    transition: all 0.1s ease;
+    color: var(--color-general-text);
+}
+
+.following__link:hover {
+    text-decoration: underline;
 }
 
 .following__title {
     display: block;
     font-weight: bold;
     color: var(--color-text-grey);
+    font-weight: 400;
 }
 
 .following__number {
@@ -509,7 +513,7 @@ input[type="password"] {
     resize: none;
     width: 100%;
     height: 30px;
-    padding: 0.6rem 1.2rem;
+    padding: 8px 12px;
     font-size: 14px;
     color: var(--color-text-grey);
     border: transparent;
@@ -529,13 +533,129 @@ input[type="password"] {
     font-size: 15px;
     font-weight: 700;
     cursor: pointer;
-    transition: background-color 150ms ease;
+    transition: background-color 0.1s ease;
 }
 
 .form-post__btn-submit:hover {
     background-color: rgb(26, 140, 216);
 }
 
-.form-post__image {
+input[type="file"] {
+    display: none;
+}
+
+.box__icon {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.1s ease;
+}
+
+.box__icon:hover {
+    background-color: rgba(29, 155, 240, 0.1);
+}
+
+.custom-file-upload {
+    display: inline-block;
+    cursor: pointer;
+    background-color: transparent;
+    color: rgb(29, 155, 240);
+    padding: 10px 10px 8px;
+}
+
+.custom-file-upload i {
+    font-size: 20px;
+}
+
+.content__form {
     width: 100%;
+    height: calc(100vh - 100px);
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-border-post);
+}
+
+.config-form {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+}
+
+.form-file {
+    position: relative;
+    max-width: 112px;
+}
+
+.form-file label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.container-avatar {
+    position: relative;
+}
+
+.container-avatar__img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 50%;
+    max-width: 112px;
+    max-height: 112px;
+}
+
+.form-file i {
+    font-size: 17px;
+    padding: 12px;
+    border-radius: 50%;
+    background-color: rgba(15, 20, 25, 0.75);
+    color: #fff;
+    transition: all 0.1s ease;
+}
+
+.form-file label:hover i {
+    background-color: rgba(15, 20, 25, 0.85);
+}
+
+.form-group {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid rgb(51, 54, 57);
+    margin: 15px 0;
+}
+
+.form-group label {
+    display: block;
+    padding: 4px 12px 0 12px;
+    color: var( --color-text-grey);
+}
+
+.form-group input {
+    color: var(--color-general-text);
+}
+
+.form-group textarea {
+    padding: 8px 12px;
+    width: 100%;
+    resize: none;
+    background-color: transparent;
+    border: transparent;
+    color: var(--color-general-text);
+    height: auto;
+    min-height: 20px;
+    outline: none;
+    display: block;
+}
+
+.form-post__textarea:focus {
+    border: transparent;
 }

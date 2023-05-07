@@ -34,7 +34,6 @@ export const Config = () => {
       delete data.user.password;
       setAuth(data.user);
       setSaved("saved");
-      console.log(auth);
     } else {
       setSaved("error");
     }
@@ -70,53 +69,51 @@ export const Config = () => {
 
   return (
     <>
-      <div className="content__posts">
-        <strong className='alert alert-success'>{saved == "saved" ? "User successfully updated" : ""}</strong>
-        <strong className='alert alert-error'>{saved == "error" ? "The user has not updated correctly" : ""}</strong>
-
+      <div className="content__form">
         <form className='config-form' onSubmit={updateUser}>
+
+          <div className="form-file">
+            <label htmlFor="file">
+              <i className="fa-regular fa-image"></i>
+            </label>
+            <div className="container-avatar">
+              {auth.image != "default.png" ? <img src={Global.url + "user/avatar/" + auth.image} className="container-avatar__img" alt="Foto de perfil" /> :
+                <img src={avatar} className="container-avatar__img" alt="Foto de perfil" />}
+            </div>
+            <input type="file" name="file" id="file" />
+          </div>
+
           <div className="form-group">
             <label htmlFor="name">Name</label>
-            <input type="text" name='name' defaultValue={auth.name} />
+            <input type="text" name='name' id='name' defaultValue={auth.name} />
           </div>
 
           <div className="form-group">
             <label htmlFor="surname">Surname</label>
-            <input type="text" name='surname' defaultValue={auth.surname} />
+            <input type="text" name='surname' id='surname' defaultValue={auth.surname} />
           </div>
 
           <div className="form-group">
             <label htmlFor="nick">Nickname</label>
-            <input type="text" name='nick' defaultValue={auth.nick} />
+            <input type="text" name='nick' id='nick' defaultValue={auth.nick} />
           </div>
 
           <div className="form-group">
             <label htmlFor="bio">Bio</label>
-            <textarea name='bio' defaultValue={auth.bio} />
+            <textarea name='bio' id='bio' defaultValue={auth.bio} />
           </div>
 
           <div className="form-group">
             <label htmlFor="email">Email</label>
-            <input type="email" name='email' defaultValue={auth.email} />
+            <input type="email" name='email' id='email' defaultValue={auth.email} />
           </div>
 
           <div className="form-group">
             <label htmlFor="password">Password</label>
-            <input type="password" name='password' />
+            <input type="password" name='password' id='password' />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="file0">Avatar</label>
-            <div className="general-info__container-avatar">
-              {auth.image != "default.png" ? <img src={Global.url + "user/avatar/" + auth.image} className="container-avatar__img" alt="Foto de perfil" /> :
-                <img src={avatar} className="container-avatar__img" alt="Foto de perfil" />}
-            </div>
-            <br />
-            <input type="file" name='file0' id='file' />
-          </div>
-          <br />
-
-          <input type="submit" value="Update" className='btn btn-success' />
+          <input type="submit" value="Update" className='post__button--white' />
 
         </form>
       </div>
