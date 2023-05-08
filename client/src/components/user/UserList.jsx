@@ -3,7 +3,7 @@ import avatar from "../../assets/img/user.png";
 import { Global } from '../../helpers/Global';
 import { useAuth } from '../../hooks/useAuth';
 import { Link } from 'react-router-dom';
-import ReactTimeAgo from "react-time-ago";
+import { BeatLoader } from 'react-spinners';
 
 export const UserList = ({ users, getUsers, following, setFollowing, page, setPage, more, loading }) => {
 
@@ -60,7 +60,7 @@ export const UserList = ({ users, getUsers, following, setFollowing, page, setPa
                             <div className="post__container">
 
                                 <div className="post__image-user">
-                                    <Link to={"/social/profile/"+user._id} className="post__image-link">
+                                    <Link to={"/social/profile/" + user._id} className="post__image-link">
                                         {user.image != "default.png" ? <img src={Global.url + "user/avatar/" + user.image} className="post__user-image" alt="Foto de perfil" /> :
                                             <img src={avatar} className="post__user-image" alt="Foto de perfil" />}
                                     </Link>
@@ -69,8 +69,8 @@ export const UserList = ({ users, getUsers, following, setFollowing, page, setPa
                                 <div className="post__body">
 
                                     <div className="post__user-info">
-                                        <Link to={"/social/profile/"+user._id} className="user-info__name">{user.name} {user.surname}</Link>
-                                        <Link to={"/social/profile/"+user._id} className="user-info__create-date">{" @"+user.nick}</Link>
+                                        <Link to={"/social/profile/" + user._id} className="user-info__name">{user.name} {user.surname}</Link>
+                                        <Link to={"/social/profile/" + user._id} className="user-info__create-date">{" @" + user.nick}</Link>
                                     </div>
 
                                     <h4 className="post__content">{user.bio}</h4>
@@ -103,7 +103,7 @@ export const UserList = ({ users, getUsers, following, setFollowing, page, setPa
                 })}
             </div>
 
-            {more &&
+            {more && !loading &&
                 <div className="content__container-btn">
                     <button className="content__btn-more-post" onClick={nextPage}>
                         Sow more people
@@ -111,7 +111,12 @@ export const UserList = ({ users, getUsers, following, setFollowing, page, setPa
                 </div>
             }
 
-            {loading ? "Loading..." : ""}
+            {loading &&
+                <div className="loader-container">
+                    <BeatLoader color="#123abc" loading={loading} size={15} />
+                </div>
+            }
+            
         </>
     )
 }

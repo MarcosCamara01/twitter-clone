@@ -292,6 +292,13 @@ body {
     background-color: var(--color-background-btn-delete-hover);
 }
 
+.button__delete {
+    border-radius: 4px;
+    padding: 0 10px;
+    color: var(--color-btn-delete);
+    border-color: var(--color-border-btn-delete);
+}
+
 .post__button--white {
     padding: 0 16px;
     font-size: 15px;
@@ -658,4 +665,9 @@ input[type="file"] {
 
 .form-post__textarea:focus {
     border: transparent;
+}
+
+.login-register_h3 {
+    font-size: 30px;
+    font-weight: 800;
 }

@@ -6,8 +6,8 @@ import { useAuth } from '../../hooks/useAuth';
 export const Login = () => {
 
     const { form, changed } = useForm({});
-    const [ saved, setLogged ] = useState("not_logged");
-    const {setAuth} = useAuth();
+    const [saved, setLogged] = useState("not_logged");
+    const { setAuth } = useAuth();
 
     const loginUser = async (e) => {
         e.preventDefault();
@@ -41,20 +41,18 @@ export const Login = () => {
 
     return (
         <>
-            <header className="content__header content__header--public">
-                <h1 className="content__title">Login</h1>
-            </header>
+            <div className="content__form">
 
-            <div className="content__posts">
+                <form className='config-form' onSubmit={loginUser}>
 
-                <strong className='alert alert-success'>{saved == "logged" ? "User successfully logged" : ""}</strong>
-                <strong className='alert alert-error'>{saved == "error" ? "The user has not logged" : ""}</strong>
+                    <h3 className='login-register_h3'>Login</h3>
 
-                <form className='form-login' onSubmit={loginUser}>
+                    <strong className='alert alert-success'>{saved == "logged" ? "User successfully logged" : ""}</strong>
+                    <strong className='alert alert-error'>{saved == "error" ? "The user has not logged" : ""}</strong>
 
                     <div className='form-group'>
                         <label htmlFor="email">Email</label>
-                        <input type="email" name="email" onChange={changed} />
+                        <input type="email" name="email" onChange={changed} autoComplete='off' />
                     </div>
 
                     <div className='form-group'>
@@ -62,7 +60,7 @@ export const Login = () => {
                         <input type="password" name="password" onChange={changed} />
                     </div>
 
-                    <input type="submit" value="Login" className='btn btn-success' />
+                    <input type="submit" value="Login" className='post__button--white' />
 
                 </form>
             </div>
