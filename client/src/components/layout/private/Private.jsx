@@ -2,13 +2,14 @@ import React from 'react'
 import { Header } from './Header'
 import { Navigate, Outlet } from 'react-router-dom'
 import { useAuth } from '../../../hooks/useAuth'
+import { Loader } from '../../../helpers/Loader'
 
 export const Private = () => {
 
   const { auth, loading } = useAuth();
 
   if (loading) {
-    return <h1>Loading...</h1>
+    return <div className='loader__bx loader__bx--center'><Loader /></div>
   } else {
     return (
       <>

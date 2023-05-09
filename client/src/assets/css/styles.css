@@ -671,3 +671,22 @@ input[type="file"] {
     font-size: 30px;
     font-weight: 800;
 }
+
+.loader__bx {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader__bx--center {
+    height: 100vh;
+}
+
+.loader__bx--post {
+    height: calc(100vh - 300px);
+}
+
+.loader__bx--header {
+    height: calc(100vh - 107px);
+} 

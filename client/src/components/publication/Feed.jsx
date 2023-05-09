@@ -2,18 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { Global } from '../../helpers/Global';
 import { PublicationList } from '../publication/PublicationList';
 import { Post } from './Post';
+import { Loader } from '../../helpers/Loader';
 
 export const Feed = () => {
 
     const [publications, setPublications] = useState([]);
     const [page, setPage] = useState(1);
     const [more, setMore] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         getPublications(1, false);
     }, []);
 
     const getPublications = async (page = 1, showNews = false) => {
+
+        setLoading(true);
 
         if (showNews) {
             setPublications([]);
@@ -47,6 +51,8 @@ export const Feed = () => {
             if (data.pages <= 1) {
                 setMore(false);
             }
+
+            setLoading(false);
         }
     }
 
@@ -60,6 +66,7 @@ export const Feed = () => {
                 setPage={setPage}
                 more={more}
                 setMore={setMore}
+                loading={loading}
             />
             <br />
         </>

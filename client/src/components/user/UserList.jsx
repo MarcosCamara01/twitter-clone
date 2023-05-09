@@ -3,7 +3,7 @@ import avatar from "../../assets/img/user.png";
 import { Global } from '../../helpers/Global';
 import { useAuth } from '../../hooks/useAuth';
 import { Link } from 'react-router-dom';
-import { BeatLoader } from 'react-spinners';
+import { Loader } from '../../helpers/Loader';
 
 export const UserList = ({ users, getUsers, following, setFollowing, page, setPage, more, loading }) => {
 
@@ -112,11 +112,8 @@ export const UserList = ({ users, getUsers, following, setFollowing, page, setPa
             }
 
             {loading &&
-                <div className="loader-container">
-                    <BeatLoader color="#123abc" loading={loading} size={15} />
-                </div>
+                <div className="loader__bx loader__bx--header"><Loader /></div>
             }
-            
         </>
     )
 }

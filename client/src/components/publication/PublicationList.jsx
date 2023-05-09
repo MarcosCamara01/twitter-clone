@@ -4,8 +4,9 @@ import { Global } from '../../helpers/Global';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import ReactTimeAgo from "react-time-ago";
+import { Loader } from '../../helpers/Loader';
 
-export const PublicationList = ({ publications, getPublications, page, setPage, more, setMore }) => {
+export const PublicationList = ({ publications, getPublications, page, setPage, more, setMore, loading }) => {
 
     const { auth } = useAuth();
 
@@ -79,12 +80,16 @@ export const PublicationList = ({ publications, getPublications, page, setPage, 
             </div>
 
             {
-                more &&
+                more && !loading &&
                 <div className="content__container-btn">
                     <button className="content__btn-more-post" onClick={nextPage}>
                         Ver mas publicaciones
                     </button>
                 </div>
+            }
+
+            {loading &&
+                <div className="loader__bx loader__bx--post"><Loader /></div>
             }
         </>
     )

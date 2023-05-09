@@ -21,7 +21,7 @@ export const Nav = () => {
                 <li className="list-end__item">
                     <NavLink to="/social/logout" className="list-end__link">
                         <i className='fa-solid fa-arrow-right-from-bracket'></i>
-                        <span className="list-end__name">Carrar sesión</span>
+                        <span className="list-end__name">Log out</span>
                     </NavLink>
                 </li>
             </ul>
@@ -30,14 +30,14 @@ export const Nav = () => {
                 <li className="menu-list__item">
                     <NavLink to="/social" className="menu-list__link">
                         <i className="fa-solid fa-house"></i>
-                        <span className="menu-list__title">Inicio</span>
+                        <span className="menu-list__title">Home</span>
                     </NavLink>
                 </li>
 
                 <li className="menu-list__item">
                     <NavLink to="/social/people" className="menu-list__link">
                         <i className="fa-solid fa-user"></i>
-                        <span className="menu-list__title">Gente</span>
+                        <span className="menu-list__title">Explore</span>
                     </NavLink>
                 </li>
             </ul>

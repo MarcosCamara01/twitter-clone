@@ -16,6 +16,7 @@ export const Profile = () => {
     const [publications, setPublications] = useState([]);
     const [page, setPage] = useState(1);
     const [more, setMore] = useState(false);
+    const [loading, setLoading] = useState(true);
     const params = useParams();
 
     useEffect(() => {
@@ -32,11 +33,16 @@ export const Profile = () => {
     }, [params])
 
     const getDataUser = async () => {
+        setLoading(true);
         let dataUser = await GetProfile(params.userId, setUser);
-        if (dataUser.following && dataUser.following._id) setIFollow(true);
+        if (dataUser.following && dataUser.following._id) {
+            setIFollow(true); 
+            setLoading(false);
+        } 
     }
 
     const getCounters = async () => {
+        setLoading(true);
         const request = await fetch(Global.url + "user/counters/" + params.userId, {
             method: "GET",
             headers: {
@@ -49,6 +55,7 @@ export const Profile = () => {
 
         if (data.following) {
             setCounters(data);
+            setLoading(false);
         }
     }
 
@@ -86,6 +93,7 @@ export const Profile = () => {
     }
 
     const getPublications = async (page = 1, newProfile = false) => {
+        setLoading(true);
         const request = await fetch(Global.url + "publication/user/" + params.userId + "/" + page, {
             method: "GET",
             headers: {
@@ -118,6 +126,8 @@ export const Profile = () => {
             if (data.pages <= 1) {
                 setMore(false);
             }
+
+            setLoading(false);
         }
     }
 
@@ -127,12 +137,7 @@ export const Profile = () => {
 
                 <div className="profile-info__general-info">
                     <div className="general-info__container-avatar">
-                        {user.image == "default.png"
-                            ?
-                            <img src={avatar} className="profile__container-avatar" alt="Foto de perfil" />
-                            :
-                            <img src={Global.url + "user/avatar/" + user.image} className="profile__container-avatar" alt="Foto de perfil" />
-                        }
+                        <img src={user.image === "default.png" ? avatar : Global.url + "user/avatar/" + user.image} className="profile__container-avatar" alt="Foto de perfil" />
                     </div>
 
                     <div className="general-info__container-names">
@@ -147,12 +152,12 @@ export const Profile = () => {
                                 :
                                 <>
                                     <button className="post__button post__button--normal">
-                                        <NavLink to="/social/settings">Editar perfil</NavLink>
+                                        <NavLink to="/social/settings">Edit profile</NavLink>
                                     </button>
                                 </>
                             }
                         </div>
-                        <h2 className="container-names__nickname">{" @"+user.nick}</h2>
+                        <h2 className="container-names__nickname">{" @" + user.nick}</h2>
                         <p>{user.bio}</p>
                     </div>
                 </div>
@@ -161,13 +166,13 @@ export const Profile = () => {
 
                     <div className="stats__following">
                         <Link to={"/social/following/" + user._id} className="following__link">
-                            <span className="following__title">Siguiendo</span>
+                            <span className="following__title">Following</span>
                             <span className="following__number">{counters.following >= 1 ? counters.following : 0}</span>
                         </Link>
                     </div>
                     <div className="stats__following">
                         <Link to={"/social/followers/" + user._id} className="following__link">
-                            <span className="following__title">Seguidores</span>
+                            <span className="following__title">Followers</span>
                             <span className="following__number">{counters.followed >= 1 ? counters.followed : 0}</span>
                         </Link>
                     </div>
@@ -175,7 +180,7 @@ export const Profile = () => {
 
                     <div className="stats__following">
                         <Link to={"/social/profile/" + user._id} className="following__link">
-                            <span className="following__title">Publicaciones</span>
+                            <span className="following__title">Publications</span>
                             <span className="following__number">{counters.publications >= 1 ? counters.publications : 0}</span>
                         </Link>
                     </div>
@@ -191,8 +196,8 @@ export const Profile = () => {
                 setPage={setPage}
                 more={more}
                 setMore={setMore}
+                loading={loading}
             />
-
             <br />
         </>
     )

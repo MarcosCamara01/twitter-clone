@@ -78,7 +78,7 @@ export const Post = () => {
             <div className='post__container'>
                 <div className="post__image-user">
                     <NavLink to={"/social/profile/" + auth._id} className="post__image-link">
-                        {auth.image != "default.png" ? <img src={Global.url + "user/avatar/" + auth.image} className="post__user-image" alt="Foto de perfil" /> :
+                        {auth.image != "default.png" ? <img src={Global.url + "user/avatar/" + auth.image} className="post__user-image" alt="Profile photo" /> :
                             <img src={avatar} className="post__user-image" alt="Foto de perfil" />}
                     </NavLink>
                 </div>
@@ -86,7 +86,7 @@ export const Post = () => {
                 <form id='publication-form' className="container-form__form-post" onSubmit={savePublication}>
 
                     <div className="form-">
-                        <textarea name="text" className="form-post__textarea" onChange={changed} placeholder="¿Qué está pasando?" />
+                        <textarea name="text" className="form-post__textarea" onChange={changed} placeholder="What's happening?" />
                     </div>
 
                     {selectedImage && (
@@ -94,7 +94,7 @@ export const Post = () => {
                             <div className="button_delete" onClick={handleReset}>
                                 <i className="fas fa-times"></i>
                             </div>
-                            <img src={URL.createObjectURL(selectedImage)} alt="Imagen seleccionada" />
+                            <img src={URL.createObjectURL(selectedImage)} alt="Selected image" />
                         </div>
                     )}
 
@@ -107,7 +107,7 @@ export const Post = () => {
                         </div>
                         <input
                             type="submit"
-                            value="Twittear"
+                            value="Tweet"
                             className="form-post__btn-submit"
                         />
                     </div>

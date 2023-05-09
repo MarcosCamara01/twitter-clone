@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Global } from '../../helpers/Global';
 import { useParams } from 'react-router-dom';
 import { UserList } from '../user/UserList';
-import { GetProfile } from '../../helpers/getProfile';
+import { GetProfile } from '../../helpers/GetProfile';
 
 export const Following = () => {
 
