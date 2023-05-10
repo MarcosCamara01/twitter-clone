@@ -50,37 +50,36 @@ export const PublicationList = ({ publications, getPublications, page, setPage, 
                                 <div className="post__body">
 
                                     <div className="post__user-info">
-                                        <Link to={"/social/profile/" + publication.user._id} className="user-info__name">{publication.user.name + " " + publication.user.surname}</Link>
-                                        <Link to={"/social/profile/" + publication.user._id} className="user-info__create-date">{" @" + publication.user.nick}</Link>
-                                        <span className="user-info__divider"> · </span>
-                                        <Link to={"/social/profile/" + publication.user._id} className="user-info__create-date"><ReactTimeAgo date={new Date(publication.created_at).getTime()} locale='es-ES' timeStyle="twitter" /></Link>
-                                    </div>
+                                        <div>
+                                            <Link to={"/social/profile/" + publication.user._id} className="user-info__name">{publication.user.name + " " + publication.user.surname}</Link>
+                                            <Link to={"/social/profile/" + publication.user._id} className="user-info__create-date">{" @" + publication.user.nick}</Link>
+                                            <span className="user-info__divider"> · </span>
+                                            <Link to={"/social/profile/" + publication.user._id} className="user-info__create-date"><ReactTimeAgo date={new Date(publication.created_at).getTime()} locale='en-US' timeStyle="twitter" /></Link>
+                                            <p className="post__content">{publication.text}</p>
+                                        </div>
+                                        {auth._id == publication.user._id &&
+                                            <div className="post__buttons">
 
-                                    <p className="post__content">{publication.text}</p>
+                                                <button onClick={() => deletePublication(publication._id)} className="post__button button__delete">
+                                                    <i className="fa-solid fa-trash-can"></i>
+                                                </button>
+
+                                            </div>
+                                        }
+                                    </div>
 
                                     {publication.file && <div className='post__img'><img src={Global.url + "publication/media/" + publication.file} /></div>}
 
                                 </div>
 
                             </div>
-
-                            {auth._id == publication.user._id &&
-                                <div className="post__buttons">
-
-                                    <button onClick={() => deletePublication(publication._id)} className="post__button button__delete">
-                                        <i className="fa-solid fa-trash-can"></i>
-                                    </button>
-
-                                </div>
-                            }
-
                         </article>
                     );
                 })}
             </div>
 
             {
-                more && !loading &&
+                more && 
                 <div className="content__container-btn">
                     <button className="content__btn-more-post" onClick={nextPage}>
                         Ver mas publicaciones

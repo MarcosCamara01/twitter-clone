@@ -81,8 +81,8 @@ body {
 
 .navbar__container-lists {
     height: 107px;
-    max-width: 670px;
-    min-width: 670px;
+    max-width: 700px;
+    min-width: 700px;
     display: block;
     border: 1px solid var(--color-border-post);
 }
@@ -122,6 +122,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 10px;
 }
 
 .list-end__img {
@@ -139,8 +140,7 @@ body {
 .layout__content {
     max-width: 700px;
     margin: 0 auto;
-    padding: 0 1.5rem;
-    margin-top: 100px;
+    margin-top: 107px;
 }
 
 .content__login {
@@ -196,20 +196,18 @@ body {
     border: 1px solid var(--color-border-post);
     border-top: 1px solid transparent;
     padding: 1.5rem;
-}
-
-.post__people {
-    border-top: 1px solid var(--color-border-post);
+    overflow: hidden;
 }
 
 .post__container {
     display: flex;
     flex-direction: row;
+    width: 100%;
     gap: 12px;
 }
 
 .post__image-user {
-    width: 48px;
+    min-width: 48px;
     height: 48px;
     border-radius: 100rem;
     overflow: hidden;
@@ -238,18 +236,28 @@ body {
 .post__content {
     font-size: 15px;
     font-weight: 400;
-    max-width: 550px;
     height: auto;
     overflow: hidden;
 }
 
+.post__body {
+    display: block;
+    width: 100%;
+}
+
 .post__img {
     margin-top: 12px;
+}
+
+.post__img img {
+    border: 1px solid var(--color-border-post);
     border-radius: 15px;
     overflow: hidden;
-    max-width: 550px;
-    max-height: 550px;
-    border: 1px solid var(--color-border-post);
+}
+
+.post__user-info {
+    display: flex;
+    justify-content: space-between;
 }
 
 .post__buttons {
@@ -350,7 +358,8 @@ body {
 /*ESTILOS BARRA LATERAL*/
 .aside__profile-info {
     border: 1px solid var(--color-border-post);
-    padding: 2.5rem;
+    border-top: 1px solid transparent;
+    padding: 15px;
 }
 
 .profile-info__general-info {
@@ -441,7 +450,8 @@ body {
 .container-form {
     width: 100%;
     border: 1px solid var(--color-border-post);
-    padding: 2.5rem;
+    border-top: 1px solid transparent;
+    padding: 20px;
 }
 
 .container-form__form-post {
@@ -466,7 +476,6 @@ form {
 
 .form-post__textarea {
     resize: none;
-    overflow: hidden;
     height: auto;
     min-height: 20px;
     width: 100%;
@@ -577,10 +586,12 @@ input[type="file"] {
 
 .content__form {
     width: 100%;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 107px);
     display: flex;
     align-items: center;
     border: 1px solid var(--color-border-post);
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
 }
 
 .config-form {
@@ -643,7 +654,7 @@ input[type="file"] {
 .form-group label {
     display: block;
     padding: 4px 12px 0 12px;
-    color: var( --color-text-grey);
+    color: var(--color-text-grey);
 }
 
 .form-group input {
@@ -689,4 +700,4 @@ input[type="file"] {
 
 .loader__bx--header {
     height: calc(100vh - 107px);
-} 
+}

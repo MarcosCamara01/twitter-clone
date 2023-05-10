@@ -7,10 +7,9 @@ import "./assets/css/responsive.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '@fortawesome/fontawesome-free/css/fontawesome.min.css';
 import TimeAgo from "javascript-time-ago";
-import es from "javascript-time-ago/locale/es.json";
+import en from "javascript-time-ago/locale/en.json";
 
-TimeAgo.addDefaultLocale(es);
-TimeAgo.addLocale(es);
+TimeAgo.addDefaultLocale(en);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <App />

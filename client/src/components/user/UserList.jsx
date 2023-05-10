@@ -69,8 +69,10 @@ export const UserList = ({ users, getUsers, following, setFollowing, page, setPa
                                 <div className="post__body">
 
                                     <div className="post__user-info">
-                                        <Link to={"/social/profile/" + user._id} className="user-info__name">{user.name} {user.surname}</Link>
-                                        <Link to={"/social/profile/" + user._id} className="user-info__create-date">{" @" + user.nick}</Link>
+                                        <div>
+                                            <Link to={"/social/profile/" + user._id} className="user-info__name">{user.name} {user.surname}</Link>
+                                            <Link to={"/social/profile/" + user._id} className="user-info__create-date">{" @" + user.nick}</Link>
+                                        </div>
                                     </div>
 
                                     <h4 className="post__content">{user.bio}</h4>

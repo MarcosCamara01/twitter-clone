@@ -3,6 +3,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { Global } from '../../helpers/Global';
 import { useForm } from '../../hooks/useForm';
 import { NavLink } from 'react-router-dom';
+import avatar from "../../assets/img/user.png";
 
 export const Post = () => {
 

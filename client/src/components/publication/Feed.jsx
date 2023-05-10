@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Global } from '../../helpers/Global';
 import { PublicationList } from '../publication/PublicationList';
 import { Post } from './Post';
-import { Loader } from '../../helpers/Loader';
 
 export const Feed = () => {
 
@@ -68,7 +67,6 @@ export const Feed = () => {
                 setMore={setMore}
                 loading={loading}
             />
-            <br />
         </>
     )
 }

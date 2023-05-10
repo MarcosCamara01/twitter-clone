@@ -5,7 +5,7 @@ import { Global } from '../../helpers/Global';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { PublicationList } from '../publication/PublicationList';
-import { GetProfile } from '../../helpers/getProfile';
+import { GetProfile } from '../../helpers/GetProfile';
 
 export const Profile = () => {
 
@@ -55,8 +55,9 @@ export const Profile = () => {
 
         if (data.following) {
             setCounters(data);
-            setLoading(false);
         }
+
+        setLoading(false);
     }
 
     const follow = async (userId) => {
@@ -126,9 +127,9 @@ export const Profile = () => {
             if (data.pages <= 1) {
                 setMore(false);
             }
-
-            setLoading(false);
         }
+
+        setLoading(false);
     }
 
     return (
@@ -198,7 +199,6 @@ export const Profile = () => {
                 setMore={setMore}
                 loading={loading}
             />
-            <br />
         </>
     )
 }
