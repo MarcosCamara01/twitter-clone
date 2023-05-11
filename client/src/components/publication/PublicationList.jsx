@@ -79,9 +79,9 @@ export const PublicationList = ({ publications, getPublications, page, setPage, 
             </div>
 
             {
-                more && 
+                more && !loading &&
                 <div className="content__container-btn">
-                    <button className="content__btn-more-post" onClick={nextPage}>
+                    <button className="post__button post__button--normal" onClick={nextPage}>
                         Ver mas publicaciones
                     </button>
                 </div>

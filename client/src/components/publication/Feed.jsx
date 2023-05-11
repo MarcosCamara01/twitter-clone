@@ -7,7 +7,7 @@ export const Feed = () => {
 
     const [publications, setPublications] = useState([]);
     const [page, setPage] = useState(1);
-    const [more, setMore] = useState(false);
+    const [more, setMore] = useState(true);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {

@@ -9,6 +9,12 @@ export const Config = () => {
   const { auth, setAuth } = useAuth();
 
   const [saved, setSaved] = useState("not_saved");
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setSelectedImage(URL.createObjectURL(file));
+  };
 
   const updateUser = async (e) => {
     e.preventDefault();
@@ -77,10 +83,17 @@ export const Config = () => {
               <i className="fa-regular fa-image"></i>
             </label>
             <div className="container-avatar">
-              {auth.image != "default.png" ? <img src={Global.url + "user/avatar/" + auth.image} className="container-avatar__img" alt="Foto de perfil" /> :
-                <img src={avatar} className="container-avatar__img" alt="Foto de perfil" />}
+              {selectedImage ? (
+                <img src={selectedImage} className="container-avatar__img" alt="Foto de perfil" />
+              ) : (
+                auth.image !== "default.png" ? (
+                  <img src={Global.url + "user/avatar/" + auth.image} className="container-avatar__img" alt="Foto de perfil" />
+                ) : (
+                  <img src={avatar} className="container-avatar__img" alt="Foto de perfil" />
+                )
+              )}
             </div>
-            <input type="file" name="file" id="file" />
+            <input type="file" name="file" id="file" onChange={handleFileChange} />
           </div>
 
           <div className="form-group">
