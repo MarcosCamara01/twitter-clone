@@ -253,6 +253,7 @@ body {
     border: 1px solid var(--color-border-post);
     border-radius: 15px;
     overflow: hidden;
+    max-height: 700px;
 }
 
 .post__user-info {

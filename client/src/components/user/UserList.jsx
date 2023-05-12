@@ -108,7 +108,7 @@ export const UserList = ({ users, getUsers, following, setFollowing, page, setPa
             {more && !loading &&
                 <div className="content__container-btn">
                     <button className="post__button post__button--normal" onClick={nextPage}>
-                        Sow more people
+                        Show more
                     </button>
                 </div>
             }
