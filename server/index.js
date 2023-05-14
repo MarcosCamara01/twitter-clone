@@ -14,7 +14,9 @@ const app = express();
 const puerto = 3900;
 
 // Configurar cors
-app.use(cors());
+app.use(cors({
+  origin: 'https://twitter-clone-aca36.web.app'
+}));
 
 // Convertir los datos del body a objetos js
 app.use(express.json());
@@ -28,19 +30,6 @@ const FollowRoutes = require("./routes/follow");
 app.use("/api/user", UserRoutes);
 app.use("/api/publication", PublicationRoutes);
 app.use("/api/follow", FollowRoutes);
-
-// Ruta de prueba
-app.get("/ruta-prueba", (req, res) => {
-    
-    return res.status(200).json(
-        {
-            "id": 1,
-            "nombre": "Victor",
-            "web": "victorroblesweb.es"
-        }
-    );
-
-})
 
 // Poner servidor a escuchar peticiones http
 app.listen(puerto, () => {
