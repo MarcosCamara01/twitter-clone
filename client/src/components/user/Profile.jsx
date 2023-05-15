@@ -138,7 +138,14 @@ export const Profile = () => {
 
                 <div className="profile-info__general-info">
                     <div className="general-info__container-avatar">
-                        <img src={user.image === "default.png" ? avatar : Global.url + "user/avatar/" + user.image} className="profile__container-avatar" alt="Foto de perfil" />
+                        {
+                            user.image === "default.png" 
+                            ?
+                            <img src={avatar} className='profile__container-avatar' alt='profile picture' />
+                            :
+                            <img src={Global.url + "user/avatar/" + user.image} className="profile__container-avatar" alt="profile picture" />
+
+                        }
                     </div>
 
                     <div className="general-info__container-names">

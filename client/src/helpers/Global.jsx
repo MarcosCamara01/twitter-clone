@@ -1,3 +1,3 @@
 export const Global = {
-    url: "https://twitter-clone-api-production-b8e3.up.railway.app/"
+    url: "https://twitter-clone-api-production-883c.up.railway.app/api/"
 };
