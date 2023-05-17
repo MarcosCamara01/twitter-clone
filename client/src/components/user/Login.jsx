@@ -62,6 +62,11 @@ export const Login = () => {
 
                     <input type="submit" value="Login" className='post__button--white' />
 
+                    <div className="bx_user_registered">
+                        <p>To avoid having to use an email and password, you can use this already registered user.</p>
+                        <p> Email: user@gmail.com Password: user</p>
+                    </div>
+
                 </form>
             </div>
         </>
