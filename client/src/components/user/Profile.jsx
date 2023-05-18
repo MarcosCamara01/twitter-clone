@@ -93,9 +93,8 @@ export const Profile = () => {
             if (data.pages <= 1) {
                 setMore(false);
             }
-        }
-
-        setLoading(false);
+            setLoading(false);
+        } 
     }
 
     const follow = async (userId) => {
@@ -140,6 +139,7 @@ export const Profile = () => {
                 unfollow={unfollow}
                 follow={follow}
                 counters={counters}
+                loading={loading}
             />
 
             <PublicationList

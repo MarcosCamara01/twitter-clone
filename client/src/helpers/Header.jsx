@@ -3,36 +3,38 @@ import avatar from "../assets/img/user.png";
 import { Global } from './Global';
 import { Link, NavLink } from 'react-router-dom';
 
-const Header = ({ user, auth, iFollow, unfollow, follow, counters }) => {
+const Header = ({ user, auth, iFollow, unfollow, follow, counters, loading }) => {
     return (
         <header className="aside__profile-info">
 
             <div className="profile-info__general-info">
                 <div className="general-info__container-avatar">
                     {
-                        user.image === "default.png"
+                        !loading &&
+                            (user.image === "default.png"
                             ?
                             <img src={avatar} className='profile__container-avatar' alt='profile picture' />
                             :
-                            <img src={Global.url + "user/avatar/" + user.image} className="profile__container-avatar" alt="profile picture" />
+                            <img src={Global.url + "user/avatar/" + user.image} className="profile__container-avatar" alt="profile picture" />)
                     }
                 </div>
-
                 <div className="general-info__container-names">
                     <div className="container-names__name">
                         <h1>{user.name} {user.surname}</h1>
-                        {user._id != auth._id ?
-                            (iFollow ?
-                                <button onClick={() => unfollow(user._id)} className="post__button"><div></div></button>
+                        {
+                            !loading &&
+                               (user._id != auth._id ?
+                                (iFollow ?
+                                    <button onClick={() => unfollow(user._id)} className="post__button"><div></div></button>
+                                    :
+                                    <button onClick={() => follow(user._id)} className="post__button--white">Follow</button>
+                                )
                                 :
-                                <button onClick={() => follow(user._id)} className="post__button--white">Follow</button>
-                            )
-                            :
-                            <>
-                                <button className="post__button post__button--normal">
-                                    <NavLink to="/social/settings">Edit profile</NavLink>
-                                </button>
-                            </>
+                                <>
+                                    <button className="post__button post__button--normal">
+                                        <NavLink to="/social/settings">Edit profile</NavLink>
+                                    </button>
+                                </>)
                         }
                     </div>
                     <h2 className="container-names__nickname">{" @" + user.nick}</h2>
