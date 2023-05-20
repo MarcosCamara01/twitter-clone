@@ -6,7 +6,7 @@ import { useAuth } from '../../hooks/useAuth';
 export const Login = () => {
 
     const { form, changed } = useForm({});
-    const [saved, setLogged] = useState("not_logged");
+    const [logged, setLogged] = useState("not_logged");
     const { setAuth } = useAuth();
 
     const loginUser = async (e) => {
@@ -45,10 +45,10 @@ export const Login = () => {
 
                 <form className='config-form' onSubmit={loginUser}>
 
-                    <h3 className='login-register_h3'>Login</h3>
+                    <strong className='alert alert-form'>{logged == "logged" ? "User successfully logged" : ""}</strong>
+                    <strong className='alert alert-form'>{logged == "error" ? "The user has not logged" : ""}</strong>
 
-                    <strong className='alert alert-success'>{saved == "logged" ? "User successfully logged" : ""}</strong>
-                    <strong className='alert alert-error'>{saved == "error" ? "The user has not logged" : ""}</strong>
+                    <h3 className='login-register_h3'>Login</h3>
 
                     <div className='form-group'>
                         <label htmlFor="email">Email</label>

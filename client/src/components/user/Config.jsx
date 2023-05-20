@@ -78,6 +78,9 @@ export const Config = () => {
       <div className="content__form">
         <form className='config-form' onSubmit={updateUser}>
 
+          <strong className='alert alert-form'>{saved == "saved" ? "User successfully saved" : ""}</strong>
+          <strong className='alert alert-form'>{saved == "error" ? "The user has not saved" : ""}</strong>
+
           <div className="form-file">
             <label htmlFor="file">
               <i className="fa-regular fa-image"></i>
