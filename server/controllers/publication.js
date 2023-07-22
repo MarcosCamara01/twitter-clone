@@ -97,7 +97,7 @@ const user = (req, res) => {
     // Controlar la pagina
     let page = 1;
 
-    if (req.params.page) page = req.params.page
+    if (req.params.page) page = req.params.page;
 
     const itemsPerPage = 15;
 
@@ -106,11 +106,21 @@ const user = (req, res) => {
         .sort("-created_at")
         .populate('user', '-password -__v -role -email')
         .paginate(page, itemsPerPage, (error, publications, total) => {
-
-            if (error || !publications || publications.length <= 0) {
-                return res.status(404).send({
+            if (error) {
+                return res.status(500).send({
                     status: "error",
-                    message: "No hay publicaciones para mostrar"
+                    message: "Error al obtener las publicaciones del perfil del usuario",
+                });
+            }
+
+            if (publications.length === 0) {
+                return res.status(200).send({
+                    status: "success",
+                    message: "No hay publicaciones para mostrar",
+                    page,
+                    total,
+                    pages: 0,
+                    publications: [],
                 });
             }
 
@@ -122,7 +132,6 @@ const user = (req, res) => {
                 total,
                 pages: Math.ceil(total / itemsPerPage),
                 publications,
-
             });
         });
 }
@@ -226,7 +235,7 @@ const feed = async (req, res) => {
             .sort("-created_at")
             .paginate(page, itemsPerPage, (error, publications, total) => {
 
-                if(error || !publications){
+                if (error || !publications) {
                     return res.status(500).send({
                         status: "error",
                         message: "No hay publicaciones para mostrar",

@@ -138,9 +138,6 @@ const profile = (req, res) => {
     // Recibir el parametro del id de usuario por la url
     const id = req.params.id;
 
-    // Consulta para sacar los datos del usuario
-    //const userProfile = await User.findById(id);
-
     User.findById(id)
         .select({ password: 0, role: 0 })
         .exec(async (error, userProfile) => {
@@ -324,29 +321,29 @@ const upload = (req, res) => {
 }
 
 const avatar = (req, res) => {
-    // Sacar el parametro de la url
     const file = req.params.file;
 
-    // Montar el path real de la imagen
+    if (file === "default.png") {
+        // Si es "default.png", devolver la imagen de default directamente
+        const defaultAvatarPath = "./uploads/avatars/default.png";
+        return res.sendFile(path.resolve(defaultAvatarPath));
+    }
+
     const filePath = "./uploads/avatars/" + file;
 
-    // Comprobar que existe
     fs.stat(filePath, (error, exists) => {
-
-        if (!exists) {
+        if (error || !exists) {
             return res.status(404).send({
                 status: "error",
-                message: "No existe la imagen"
+                message: "No existe un avatar de perfil para este usuario"
             });
         }
 
-        // Devolver un file
         return res.sendFile(path.resolve(filePath));
     });
+};
 
-}
 
-// añadido
 const counters = async (req, res) => {
 
     let userId = req.user.id;

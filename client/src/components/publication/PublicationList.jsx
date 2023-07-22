@@ -1,20 +1,22 @@
 import React from 'react';
 import avatar from "../../assets/img/user.png";
-import { Global } from '../../helpers/Global';
+import { Global } from '../../../../client/src/helpers/Global';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../../../client/src/hooks/useAuth';
 import ReactTimeAgo from "react-time-ago";
-import { Loader } from '../../helpers/Loader';
+import { Loader } from '../../../../client/src/helpers/Loader';
 
 export const PublicationList = ({ publications, getPublications, page, setPage, more, setMore, loading }) => {
 
     const { auth } = useAuth();
 
     const nextPage = () => {
-        let next = page + 1;
-        setPage(next);
-        getPublications(next);
-    }
+        if (more) {
+          let nextPage = page + 1;
+          setPage(nextPage);
+          getPublications(nextPage, false);
+        }
+      };
 
     const deletePublication = async (publicationId) => {
         const request = await fetch(Global.url + "publication/remove/" + publicationId, {
@@ -26,9 +28,12 @@ export const PublicationList = ({ publications, getPublications, page, setPage, 
         });
 
         const data = await request.json();
-        getPublications(1, true);
-        setPage(1);
-        setMore(true);
+        console.log(data)
+        if (data.status === "success") {
+            getPublications(1, true);
+            setPage(1);
+            setMore(true);
+        }
     }
 
     return (

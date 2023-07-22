@@ -4,6 +4,7 @@ import { Global } from '../../helpers/Global';
 import { useForm } from '../../hooks/useForm';
 import { NavLink } from 'react-router-dom';
 import avatar from "../../assets/img/user.png";
+import { Loader } from '../../helpers/Loader';
 
 export const Post = () => {
 
@@ -79,8 +80,8 @@ export const Post = () => {
             <div className='post__container'>
                 <div className="post__image-user">
                     <NavLink to={"/social/profile/" + auth._id} className="post__image-link">
-                        {auth.image != "default.png" ? <img src={Global.url + "user/avatar/" + auth.image} className="post__user-image" alt="Profile photo" /> :
-                            <img src={avatar} className="post__user-image" alt="Foto de perfil" />}
+                        {auth.image ? <img src={Global.url + "user/avatar/" + auth.image} className="post__user-image" alt="Profile photo" /> :
+                            <Loader />}
                     </NavLink>
                 </div>
 

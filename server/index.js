@@ -13,7 +13,7 @@ const puerto = process.env.PORT || 3900;
 
 // Configurar cors
 app.use(cors({
-  origin: 'https://twitter-clone-aca36.web.app'
+  origin: 'http://localhost:5173'
 }));
 
 // Convertir los datos del body a objetos js

@@ -3,6 +3,7 @@ import avatar from "../../../assets/img/user.png";
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
 import { Global } from '../../../helpers/Global';
+import { Loader } from '../../../helpers/Loader';
 
 export const Nav = () => {
 
@@ -14,8 +15,8 @@ export const Nav = () => {
             <ul className="container-lists__list-end">
                 <li className="list-end__item">
                     <NavLink to={"/social/profile/" + auth._id} className="list-end__link-image">
-                        {auth.image != "default.png" ? <img src={Global.url + "user/avatar/" + auth.image} className="list-end__img" alt="profile picture" /> :
-                            <img src={avatar} className="list-end__img" alt="profile picture" />}
+                        {auth.image ? <img src={Global.url + "user/avatar/" + auth.image} className="list-end__img" alt="profile picture" /> :
+                            <Loader />}
                     </NavLink>
                 </li>
                 <li className="list-end__item">

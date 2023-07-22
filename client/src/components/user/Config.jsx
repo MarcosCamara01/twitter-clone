@@ -3,6 +3,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { Global } from '../../helpers/Global';
 import avatar from "../../assets/img/user.png";
 import { SerializeForm } from '../../helpers/SerializaForm';
+import { Loader } from '../../helpers/Loader';
 
 export const Config = () => {
 
@@ -89,10 +90,10 @@ export const Config = () => {
               {selectedImage ? (
                 <img src={selectedImage} className="container-avatar__img" alt="Foto de perfil" />
               ) : (
-                auth.image !== "default.png" ? (
+                auth.image ? (
                   <img src={Global.url + "user/avatar/" + auth.image} className="container-avatar__img" alt="Foto de perfil" />
                 ) : (
-                  <img src={avatar} className="container-avatar__img" alt="Foto de perfil" />
+                  <Loader />
                 )
               )}
             </div>

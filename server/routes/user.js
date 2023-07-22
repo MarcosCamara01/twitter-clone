@@ -16,8 +16,6 @@ const storage = multer.diskStorage({
 
 const uploads = multer({ storage });
 
-// Definir rutas
-router.get("/prueba-usuario", check.auth, UserContoller.pruebaUser);
 router.post("/register", UserContoller.register);
 router.post("/login", UserContoller.login);
 router.get("/profile/:id", check.auth, UserContoller.profile);
