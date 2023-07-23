@@ -2,6 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
 import { Global } from '../../../helpers/Global';
+import { AiFillHome } from 'react-icons/ai';
+import { BsPersonFill } from 'react-icons/bs';
+import { HiOutlineLogout } from 'react-icons/hi';
 
 export const Nav = () => {
 
@@ -24,7 +27,7 @@ export const Nav = () => {
                 </li>
                 <li className="list-end__item">
                     <NavLink to="/social/logout" className="list-end__link">
-                        <i className='fa-solid fa-arrow-right-from-bracket'></i>
+                        <HiOutlineLogout />
                         <span className="list-end__name">Log out</span>
                     </NavLink>
                 </li>
@@ -33,14 +36,14 @@ export const Nav = () => {
             <ul className="container-lists__menu-list">
                 <li className="menu-list__item">
                     <NavLink to="/social" className="menu-list__link">
-                        <i className="fa-solid fa-house"></i>
+                        <AiFillHome />
                         <span className="menu-list__title">Home</span>
                     </NavLink>
                 </li>
 
                 <li className="menu-list__item">
                     <NavLink to="/social/people" className="menu-list__link">
-                        <i className="fa-solid fa-user"></i>
+                        <BsPersonFill />
                         <span className="menu-list__title">Explore</span>
                     </NavLink>
                 </li>

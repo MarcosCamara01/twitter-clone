@@ -57,3 +57,6 @@ select {
     font: inherit;
 }
 
+svg {
+    font-size: 20px;
+}

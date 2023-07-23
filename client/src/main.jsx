@@ -4,8 +4,6 @@ import App from './App'
 import "./assets/css/styles.css";
 import "./assets/css/normalize.css";
 import "./assets/css/responsive.css";
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import '@fortawesome/fontawesome-free/css/fontawesome.min.css';
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en.json";
 

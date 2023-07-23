@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useAuth } from '../../hooks/useAuth';
 import { Global } from '../../helpers/Global';
 import { SerializeForm } from '../../helpers/SerializaForm';
+import { LuImage } from 'react-icons/lu';
 
 export const Config = () => {
 
@@ -82,7 +83,7 @@ export const Config = () => {
 
           <div className="form-file">
             <label htmlFor="file">
-              <i className="fa-regular fa-image"></i>
+              <span className='icon-img'><LuImage /></span>
             </label>
             <div className="container-avatar">
               {selectedImage ? (

@@ -3,6 +3,8 @@ import { useAuth } from '../../hooks/useAuth';
 import { Global } from '../../helpers/Global';
 import { useForm } from '../../hooks/useForm';
 import { NavLink } from 'react-router-dom';
+import { LuImage } from 'react-icons/lu';
+import { RiCloseFill } from 'react-icons/ri';
 
 export const Post = () => {
 
@@ -96,7 +98,7 @@ export const Post = () => {
                     {selectedImage && (
                         <div className='image__selected'>
                             <div className="button_delete" onClick={handleReset}>
-                                <i className="fas fa-times"></i>
+                                <RiCloseFill />
                             </div>
                             <img src={URL.createObjectURL(selectedImage)} alt="Selected image" />
                         </div>
@@ -105,7 +107,7 @@ export const Post = () => {
                     <div className="form-post__inputs">
                         <div className="box__icon">
                             <label htmlFor="file" className="custom-file-upload">
-                                <i className="fa-regular fa-image"></i>
+                                <LuImage />
                             </label>
                             <input type="file" id="file" name="file0" accept="image/*" onChange={handleImageChange} />
                         </div>

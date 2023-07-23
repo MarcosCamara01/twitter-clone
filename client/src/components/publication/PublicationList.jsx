@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../../../client/src/hooks/useAuth';
 import ReactTimeAgo from "react-time-ago";
 import { Loader } from '../../../../client/src/helpers/Loader';
+import { BsFillTrashFill } from 'react-icons/bs';
 
 export const PublicationList = ({ publications, getPublications, page, setPage, more, setMore, loading }) => {
 
@@ -70,7 +71,7 @@ export const PublicationList = ({ publications, getPublications, page, setPage, 
                                             <div className="post__buttons">
 
                                                 <button onClick={() => deletePublication(publication._id)} className="post__button button__delete">
-                                                    <i className="fa-solid fa-trash-can"></i>
+                                                    <BsFillTrashFill />
                                                 </button>
 
                                             </div>
