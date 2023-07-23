@@ -21,6 +21,7 @@
 
     --color-border-textarea: #ccc;
     --color-border-textarea-focus: #66afe9;
+    --color-loading: #333639;
 
 }
 
@@ -704,4 +705,21 @@ input[type="file"] {
 
 .bx_user_registered {
     margin-top: 20px;
+}
+
+.loading-color {
+    background-color: var(--color-loading);
+}
+
+.witter-logo-bx {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.witter-logo-bx .img-logo {
+    width: 72px;
+    font-size: 15px;
 }

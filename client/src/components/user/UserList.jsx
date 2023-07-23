@@ -1,5 +1,4 @@
 import React from 'react';
-import avatar from "../../assets/img/user.png";
 import { Global } from '../../helpers/Global';
 import { useAuth } from '../../hooks/useAuth';
 import { Link } from 'react-router-dom';
@@ -61,8 +60,13 @@ export const UserList = ({ users, getUsers, following, setFollowing, page, setPa
 
                                 <div className="post__image-user">
                                     <Link to={"/social/profile/" + user._id} className="post__image-link">
-                                        {user.image ? <img src={Global.url + "user/avatar/" + user.image} className="post__user-image" alt="Foto de perfil" /> :
-                                            <Loader />}
+                                        {loading || !user.image
+                                            ?
+                                            <div className='post__user-image loading-color'></div>
+
+                                            :
+                                            <img src={Global.url + "user/avatar/" + user.image} className="post__user-image" alt="Foto de perfil" />
+                                        }
                                     </Link>
                                 </div>
 

@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import { useAuth } from '../../hooks/useAuth';
 import { Global } from '../../helpers/Global';
-import avatar from "../../assets/img/user.png";
 import { SerializeForm } from '../../helpers/SerializaForm';
-import { Loader } from '../../helpers/Loader';
 
 export const Config = () => {
 
-  const { auth, setAuth } = useAuth();
+  const { auth, setAuth, loading } = useAuth();
 
   const [saved, setSaved] = useState("not_saved");
   const [selectedImage, setSelectedImage] = useState(null);
@@ -90,10 +88,10 @@ export const Config = () => {
               {selectedImage ? (
                 <img src={selectedImage} className="container-avatar__img" alt="Foto de perfil" />
               ) : (
-                auth.image ? (
-                  <img src={Global.url + "user/avatar/" + auth.image} className="container-avatar__img" alt="Foto de perfil" />
+                loading || !auth.image ? (
+                  <div className='container-avatar__img loading-color'></div>
                 ) : (
-                  <Loader />
+                  <img src={Global.url + "user/avatar/" + auth.image} className="container-avatar__img" alt="Foto de perfil" />
                 )
               )}
             </div>

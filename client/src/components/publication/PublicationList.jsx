@@ -1,5 +1,4 @@
 import React from 'react';
-import avatar from "../../assets/img/user.png";
 import { Global } from '../../../../client/src/helpers/Global';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../../../client/src/hooks/useAuth';
@@ -12,11 +11,11 @@ export const PublicationList = ({ publications, getPublications, page, setPage, 
 
     const nextPage = () => {
         if (more) {
-          let nextPage = page + 1;
-          setPage(nextPage);
-          getPublications(nextPage, false);
+            let nextPage = page + 1;
+            setPage(nextPage);
+            getPublications(nextPage, false);
         }
-      };
+    };
 
     const deletePublication = async (publicationId) => {
         const request = await fetch(Global.url + "publication/remove/" + publicationId, {
@@ -47,8 +46,13 @@ export const PublicationList = ({ publications, getPublications, page, setPage, 
 
                                 <div className="post__image-user">
                                     <Link to={"/social/profile/" + publication.user._id} className="post__image-link">
-                                        {publication.user.image != "default.png" ? <img src={Global.url + "user/avatar/" + publication.user.image} className="post__user-image" alt="Foto de perfil" /> :
-                                            <img src={avatar} className="post__user-image" alt="Foto de perfil" />}
+                                        {loading || !publication.user.image
+                                            ?
+                                            <div className='profile__container-avatar loading-color'></div>
+
+                                            :
+                                            <img src={Global.url + "user/avatar/" + publication.user.image} className="post__user-image" alt="Foto de perfil" />
+                                        }
                                     </Link>
                                 </div>
 

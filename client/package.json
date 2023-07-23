@@ -17,6 +17,7 @@
     "react-content-loader": "^6.2.1",
     "react-dom": "^18.2.0",
     "react-loader-spinner": "^5.3.4",
+    "react-loading-skeleton": "^3.3.1",
     "react-router-dom": "^6.10.0",
     "react-spinners": "^0.13.8",
     "react-time-ago": "^7.2.1"

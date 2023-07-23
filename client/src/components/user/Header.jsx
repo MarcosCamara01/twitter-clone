@@ -1,7 +1,6 @@
 import React from 'react';
-import { Global } from './Global';
+import { Global } from '../../helpers/Global';
 import { Link, NavLink } from 'react-router-dom';
-import { Loader } from './Loader';
 
 const Header = ({ user, auth, iFollow, unfollow, follow, counters, loading }) => {
 
@@ -35,11 +34,11 @@ const Header = ({ user, auth, iFollow, unfollow, follow, counters, loading }) =>
 
             <div className="profile-info__general-info">
                 <div className="general-info__container-avatar">
-                    {user.image ? (
+                    {loading || !user.image ?
+                        <div className='profile__container-avatar loading-color'></div>
+                        :
                         <img src={Global.url + "user/avatar/" + user.image} className="profile__container-avatar" alt="profile picture" />
-                    ) : (
-                        <div><Loader /></div>
-                    )}
+                    }
                 </div>
                 <div className="general-info__container-names">
                     <div className="container-names__name">

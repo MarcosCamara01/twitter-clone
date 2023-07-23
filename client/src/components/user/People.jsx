@@ -47,7 +47,6 @@ export const People = () => {
   }
 
   return (
-    <>
       <UserList
         users={users}
         getUsers={getUsers}
@@ -58,6 +57,5 @@ export const People = () => {
         more={more}
         loading={loading}
       />
-    </>
   )
 }

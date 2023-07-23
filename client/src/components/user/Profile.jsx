@@ -4,7 +4,7 @@ import { Global } from '../../helpers/Global';
 import { useAuth } from '../../hooks/useAuth';
 import { PublicationList } from '../publication/PublicationList';
 import { GetProfile } from '../../helpers/GetProfile';
-import Header from '../../helpers/Header';
+import Header from './Header';
 
 export const Profile = () => {
 
