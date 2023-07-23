@@ -28,7 +28,6 @@ export const PublicationList = ({ publications, getPublications, page, setPage, 
         });
 
         const data = await request.json();
-        console.log(data)
         if (data.status === "success") {
             getPublications(1, true);
             setPage(1);
