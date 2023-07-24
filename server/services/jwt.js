@@ -1,7 +1,7 @@
 const jwt = require("jwt-simple");
 const moment = require("moment");
 
-const secret = "SECRET_KEY";
+const secret = "YOUR_SECRET_KEY";
 
 // Crear una funcion para generar tokens
 const createToken = (user) => {
