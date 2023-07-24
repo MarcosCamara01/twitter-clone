@@ -3,26 +3,18 @@
     --color-general-text: #E7E9EA;
     --color-text-grey: #71767B;
     --color-text-black: #0F1419;
-
     --color-border-headers: rgb(47, 51, 54);
-
     --color-background-btn-success: rgb(239, 243, 244);
     --color-background-btn-success-hover: rgb(215, 219, 220);
-
     --color-btn-delete: rgb(244, 33, 46);
     --color-border-btn-delete: rgb(103, 7, 15);
     --color-background-btn-delete-hover: rgba(244, 33, 46, 0.1);
-
     --color-border-post: rgb(47, 51, 54);
     --color-name-user: #337ab7;
-
     --color-text-nickname: #969393;
-    --color-number-stats: green;
-
-    --color-border-textarea: #ccc;
-    --color-border-textarea-focus: #66afe9;
     --color-loading: #333639;
-
+    --twitter-color: rgb(29, 155, 240);
+    --black-color: #000;
 }
 
 * {
@@ -32,19 +24,17 @@
     list-style: none;
 }
 
-
 html {
     width: 100%;
     height: 100%;
     font-size: 10px;
 }
 
-
 body {
     font-size: 14px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: var(--color-general-text);
-    background-color: rgb(0, 0, 0);
+    background-color: var(--black-color);
 }
 
 .alert-form {
@@ -502,7 +492,7 @@ form {
     font-weight: 400;
     color: var(--color-text-grey);
     border: 0;
-    background-color: #000;
+    background-color: var(--black-color);
     outline: none;
 }
 
@@ -552,7 +542,7 @@ input[type="password"] {
     font-size: 14px;
     color: var(--color-text-grey);
     border: transparent;
-    background-color: #000;
+    background-color: var(--black-color);
     border-radius: 4px;
     outline: none;
     box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
@@ -560,7 +550,7 @@ input[type="password"] {
 }
 
 .form-post__btn-submit {
-    background-color: rgb(29, 155, 240);
+    background-color: var(--twitter-color);
     border: 0;
     padding: 6px 17px;
     border-radius: 9999px;
@@ -596,7 +586,7 @@ input[type="file"] {
     display: inline-block;
     cursor: pointer;
     background-color: transparent;
-    color: rgb(29, 155, 240);
+    color: var(--twitter-color);
     padding: 10px 10px 8px;
 }
 
@@ -732,8 +722,7 @@ input[type="file"] {
     justify-content: center;
 }
 
-
 .twitter-logo-bx svg {
     font-size: 60px;
-    color: rgb(29, 155, 240);
+    color: var(--twitter-color);
 }
